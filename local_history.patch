@@ -1,0 +1,16 @@
+Index: app/src/main/java/com/example/IndustryProject/FoodListAdapter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/com/example/IndustryProject/FoodListAdapter.java	(date 1571887838609)
++++ app/src/main/java/com/example/IndustryProject/FoodListAdapter.java	(date 1571887838609)
+@@ -28,6 +28,8 @@
+         TextView tvName, tvUName, tvMobile;
+         CardView cardView;
+         Button button;
++
++
+     }
+ 
+     public FoodListAdapter(Context context, int textViewResourceId) {

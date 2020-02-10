@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="white">#ffffff </color>
+    <color name="green">#657a23 </color>
+    <color name="bt_white">#ffffff</color>
+    <color name="bt_black">#001129</color>
+    <color name="bt_blue">#009bde</color>
+    <color name="bt_light_gray">#6d6d6d</color>
+    <color name="bt_expiration_date_sheet_background_light">#eceff0</color>
+    <color name="bt_expiration_date_sheet_background_dark">#20272b</color>
+    <color name="bt_black_12">#1e000000</color>
+    <color name="bt_white_12">#1effffff</color>
+    <color name="bt_black_38">#61000000</color>
+    <color name="bt_white_38">#61ffffff</color>
+    <color name="bt_black_54">#8a000000</color>
+    <color name="bt_white_54">#8affffff</color>
+    <color name="bt_black_87">#de000000</color>
+    <color name="bt_white_87">#deffffff</color>
+    <color name="yellow">#FFEB3B</color>
+    <color name="darkyellow">#FDD835</color>
+    <color name="black">#000000</color>
+    <color name="red">#ff0000</color>
+    <color name="lightgrey">#9E9E9E</color>
+    <color name="syracuseorange">#D95900</color>
+    <color name="syracuseblue">#4A20AB</color>
+    <color name="fats">#F7CA18</color>
+    <color name="carbs">#22A7F0</color>
+    <color name="protein">#F22613</color>
+    <color name="appintro1">#EDD834</color>
+    <color name="appintro2">#FF7E55</color>
+    <color name="appintro3">#FADAA3</color>
+    <color name="appintro4">#72BAAC</color>
+    <color name="foreground_material_light">#f7f2e5</color>
+    <color name="darkblue">#0B0080</color>
+    <color name="blue">#3162D7</color>
+    <color name="stayFitAccent">#002841</color>
+    <color name="lightText">#c1beba</color>
+    <color name="darkWash">#f2f1ef</color>
+    <color name="yellowXL">#fcbc21</color>
+    <color name="yellowS">#fedc89</color>
+    <color name="greyXL">#524e4a</color>
+    <color name="shader_color">#9b9b9b</color>
+    <color name="progress_color">#1DE9B6</color>
+    <color name="background_color">#B0BEC5</color>
+</resources>
+

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.IndustryProject">
+
+    <application
+        android:allowBackup="false"
+        android:icon="@drawable/ic_pizza"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".FoodSummaryActivity" />
+        <activity android:name=".UserInformationActivity" />
+        <activity android:name=".AddUserAcitivity" />
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MainActivity" />
+        <activity android:name=".ProfileActivity" />
+        <activity android:name=".UpdateBodyDetailsActivity" />
+        <activity android:name=".GoalsActivity" />
+        <activity android:name=".ReadFileAssetsActivity" />
+        <activity android:name=".SearchActivity" />
+
+        <meta-data
+            android:name="android.max_aspect"
+            android:value="2.1" />
+    </application>
+
+</manifest>
