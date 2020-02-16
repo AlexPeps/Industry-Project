@@ -41,7 +41,7 @@ public class ListViewAdapter extends ArrayAdapter {
 
 
 
-   //@Override
+
     public void add(String[] object) {
         foodList.add(object);
         super.add(object);
@@ -49,6 +49,7 @@ public class ListViewAdapter extends ArrayAdapter {
 
     @Override
     public int getCount() {
+
         return this.foodList.size();
     }
 

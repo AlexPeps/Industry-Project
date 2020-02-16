@@ -37,7 +37,7 @@ import com.natasa.progressviews.utils.OnProgressViewListener;
 import com.natasa.progressviews.utils.ProgressShape;
 import com.natasa.progressviews.utils.ProgressStartPoint;
 
-abstract class ProgressView extends View implements ProgressShape {
+public abstract class ProgressView extends View implements ProgressShape {
 
     protected float progress = 0;
     protected float strokeWidth = getResources().getDimension(

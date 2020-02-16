@@ -16,6 +16,8 @@ import android.widget.TextView;
 import android.widget.Toolbar;
 
 import com.google.android.material.navigation.NavigationView;
+import com.natasa.progressviews.CircleProgressBar;
+import com.natasa.progressviews.utils.OnProgressViewListener;
 
 public class FoodSummaryActivity extends AppCompatActivity {
 
@@ -45,8 +47,8 @@ public class FoodSummaryActivity extends AppCompatActivity {
         }
 
          */
-        final CircleProgressBar steps = (CircleProgressBar) findViewById(R.id.step_progress);
-        final CircleProgressBar food = (CircleProgressBar) findViewById(R.id.food_progress);
+        final CircleProgressBar steps = findViewById(R.id.step_progress);
+        final CircleProgressBar food = findViewById(R.id.food_progress);
 
         // Animation
         TranslateAnimation translation;
