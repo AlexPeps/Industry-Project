@@ -5,7 +5,9 @@ import android.graphics.Canvas;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 
-public class CircleProgressBar extends ProgressView {
+import com.natasa.progressviews.utils.ProgressStartPoint;
+
+public abstract class CircleProgressBar extends ProgressView {
 
     private int PADDING = 3;
     private RectF rectF;
@@ -140,8 +142,16 @@ public class CircleProgressBar extends ProgressView {
 
     @Override
     public ShapeType setType(ShapeType type) {
+        return null;
+    }
+/*
+    @Override
+    public ShapeType setType(ShapeType type) {
         return ShapeType.CIRCLE;
 
     }
 
+
+
+ */
 }

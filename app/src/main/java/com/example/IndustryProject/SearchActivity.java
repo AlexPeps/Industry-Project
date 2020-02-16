@@ -19,8 +19,10 @@ public class SearchActivity extends Activity {
     private ListViewAdapter ListViewAdapter;
     private ListView listView;
     EditText editTextSearch;
-    ArrayList<String> arrayList;
+    ArrayList<String> arrayList ;
     private ArrayList foodList = new ArrayList();
+
+    List<String[]> mFoodList;
 
 
 
@@ -62,20 +64,17 @@ public class SearchActivity extends Activity {
         //had to change list to string otherwise wouldn't work
 
 
-        List<String[]> foodList = csvFile.read();
-
-
-
-
-
+         mFoodList = csvFile.read();
         //send the array of strings to the adapter to populate the list
-        for (String[] foodData : foodList) {
-
+        for (String[] foodData : mFoodList) {
             ListViewAdapter.add(foodData);
-
         }
 
         //need to convert List<String[]> to arrayList
+        arrayList = new ArrayList<>();
+        for (int i=0; i<mFoodList.size(); i++){
+            arrayList.add(mFoodList.get(i)[2]);
+        }
 
         //adding a TextChangedListener
         //to call a method whenever there is some change on the EditText
@@ -92,10 +91,8 @@ public class SearchActivity extends Activity {
 
             @Override
             public void afterTextChanged(Editable editable) {
-
-
-
-                 filter(editable.toString());
+                if (!editable.toString().isEmpty())
+                    filter(editable.toString());
             }
 
             });
@@ -110,15 +107,17 @@ public class SearchActivity extends Activity {
 
     private void filter(String text) {
         //new array list that will hold the filtered data
-        ArrayList<String> filteredList = new ArrayList<>();
+        ArrayList<String[]> filteredList = new ArrayList<>();
 
 
         //looping through existing elements
+        int pos = 0;
         for (String s : arrayList) {
+            pos ++;
             //if the existing elements contains the search input
             if (s.toLowerCase().contains(text.toLowerCase())) {
                 //adding the element to filtered list
-                filteredList.add(s);
+                filteredList.add(mFoodList.get(pos));
             }
         }
 

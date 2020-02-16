@@ -33,56 +33,47 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gradlew">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_food_summary.xml">
+          <provider editor-type-id="android-designer2" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-408" />
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build.gradle">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/progressviewslib/src/main/res/build.gradle">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="89">
-              <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+            <state relative-caret-position="255">
+              <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/build.gradle">
+        <entry file="file://$PROJECT_DIR$/progressviewslib/src/main/java/com/natasa/progressviews/utils/ProgressViewFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="74" selection-start-line="74" selection-end-line="74" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gradle.properties">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-          <provider editor-type-id="android-manifest" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="23" column="49" selection-start-line="23" selection-start-column="49" selection-end-line="23" selection-end-column="49" />
+            <state relative-caret-position="119">
+              <caret line="25" column="7" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/progressviewslib/src/main/AndroidManifest.xml">
-          <provider editor-type-id="android-manifest" />
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/IndustryProject/SearchActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-404">
+              <caret line="65" selection-start-line="65" selection-end-line="65" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/progressviewslib/src/main/java/com/natasa/progressviews/CircleProgressBar.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="187">
-              <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+              <caret line="35" column="24" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/IndustryProject/FoodSample.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -106,8 +97,38 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/gradlew.bat">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/IndustryProject/FoodSummaryActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="123">
+              <caret line="47" selection-start-line="47" selection-end-line="47" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/IndustryProject/CircleProgressBar.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="204">
+              <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#3950#3951#0" expanded="true" />
+                <element signature="e#3977#3978#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/progressviewslib/src/main/java/com/natasa/progressviews/utils/ShapeType.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="23" selection-start-line="23" selection-end-line="23" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -149,6 +170,10 @@
       <find>androidMan</find>
       <find>application@allowBackup value=(false)</find>
       <find>27708</find>
+      <find>com.example.IndustryProject.CircleProgressBar</find>
+      <find>com.natasa.progressviews.CircleProgressBar</find>
+      <find>CircleProgressBar</find>
+      <find>com</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -178,7 +203,6 @@
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_food__recycler_frag__main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/IndustryProject/GoalsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/IndustryProject/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/IndustryProject/CircleProgressBar.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/IndustryProject/ProgressShape.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/IndustryProject/ShapeType.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/IndustryProject/ProgressView.java" />
@@ -204,12 +228,13 @@
         <option value="$PROJECT_DIR$/progressviewslib/build.gradle" />
         <option value="$PROJECT_DIR$/progressviewslib/src/main/res/build.gradle" />
         <option value="$PROJECT_DIR$/progressviewslib/src/main/AndroidManifest.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/IndustryProject/CircleProgressBar.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="1976" />
-    <option name="y" value="77" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="1912" />
+    <option name="y" value="-8" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
@@ -235,6 +260,12 @@
               <item name="IndustryProject" type="b2602c69:ProjectViewProjectNode" />
               <item name="Industry-Project" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IndustryProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Industry-Project" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -243,6 +274,23 @@
               <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IndustryProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Industry-Project" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="IndustryProject" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Industry-Project" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="IndustryProject" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="IndustryProject" type="b2602c69:ProjectViewProjectNode" />
@@ -292,8 +340,9 @@
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\OEM\Desktop\Industry Project\IP\app\src\main\res\drawable" />
+      <recent name="C:\Users\OEM\Desktop\Industry Project\IP\app\src\main\res\layout" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.example.IndustryProject" />
@@ -301,9 +350,8 @@
     <key name="android.template.packageName">
       <recent name="com.example.IndustryProject" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\OEM\Desktop\Industry Project\IP\app\src\main\res\drawable" />
-      <recent name="C:\Users\OEM\Desktop\Industry Project\IP\app\src\main\res\layout" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -425,9 +473,10 @@
   <component name="TodoView" selected-index="2" />
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.49919224" visible="true" weight="0.33742005" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" sideWeight="0.49919224" visible="true" weight="0.3219616" />
       <window_info id="Structure" order="2" sideWeight="0.50080776" side_tool="true" weight="0.3336887" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Designer" order="4" />
@@ -441,8 +490,8 @@
       <window_info anchor="bottom" id="Event Log" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Logcat" order="4" weight="0.32936078" />
       <window_info anchor="bottom" id="Android Profiler" order="5" weight="0.32936078" />
-      <window_info anchor="bottom" id="Build" order="6" weight="0.2665222" />
-      <window_info active="true" anchor="bottom" id="Run" order="7" visible="true" weight="0.5167931" />
+      <window_info anchor="bottom" id="Build" order="6" visible="true" weight="0.2654388" />
+      <window_info anchor="bottom" id="Run" order="7" weight="0.061755147" />
       <window_info anchor="bottom" id="Debug" order="8" />
       <window_info anchor="bottom" id="Find" order="9" weight="0.32936078" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
@@ -486,10 +535,6 @@
     <option name="LAST_COMMIT_MESSAGE" value="intent now sending from goals page to profile page - has to be sent from page of insertion fyi" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/IndustryProject/UserListActivity.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/IndustryProject/ValueAdapter.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/IndustryProject/FoodRecyclerViewAdapter.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_food__recycler_frag__main.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/IndustryProject/db/dao/DatabaseDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
@@ -505,16 +550,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2380">
           <caret line="155" selection-start-line="155" selection-end-line="155" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/IndustryProject/CircleProgressBar.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="46" selection-start-line="7" selection-start-column="46" selection-end-line="7" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -741,24 +776,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/IndustryProject/FoodSummaryActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-984">
-          <caret line="28" column="46" selection-start-line="28" selection-start-column="46" selection-end-line="28" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_food_summary.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="42" selection-start-line="15" selection-start-column="42" selection-end-line="15" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/IndustryProject/ListViewAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="728">
@@ -769,13 +786,6 @@
             <element signature="e#1240#1241#0" expanded="true" />
             <element signature="e#1287#1288#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/IndustryProject/SearchActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="808">
-          <caret line="65" selection-start-line="65" selection-end-line="65" />
         </state>
       </provider>
     </entry>
@@ -843,6 +853,71 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="18" selection-start-line="11" selection-start-column="18" selection-end-line="11" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/IndustryProject/FoodSample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/progressviewslib/src/main/java/com/natasa/progressviews/CircleProgressBar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="35" column="24" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/IndustryProject/FoodSummaryActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="123">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/progressviewslib/src/main/java/com/natasa/progressviews/utils/ShapeType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_food_summary.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/progressviewslib/src/main/java/com/natasa/progressviews/utils/ProgressViewFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="25" column="7" selection-start-line="25" selection-start-column="7" selection-end-line="25" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/IndustryProject/CircleProgressBar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="24" selection-start-line="12" selection-start-column="24" selection-end-line="12" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3950#3951#0" expanded="true" />
+            <element signature="e#3977#3978#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/IndustryProject/SearchActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-404">
+          <caret line="65" selection-start-line="65" selection-end-line="65" />
         </state>
       </provider>
     </entry>
