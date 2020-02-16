@@ -67,6 +67,7 @@ public class SearchActivity extends Activity {
 
 
 
+
         //send the array of strings to the adapter to populate the list
         for (String[] foodData : foodList) {
 

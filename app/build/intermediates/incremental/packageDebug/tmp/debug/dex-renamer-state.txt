@@ -1,7 +1,10 @@
-#Mon Jan 13 00:04:14 NZDT 2020
-base.0=C\:\\Users\\OEM\\Desktop\\Industry Project\\IP\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex
+#Sun Feb 16 18:40:21 NZDT 2020
+path.2=classes_0.dex
 path.1=classes.dex
-renamed.1=classes2.dex
 path.0=classes.dex
+renamed.2=classes3.dex
+renamed.1=classes2.dex
 renamed.0=classes.dex
-base.1=C\:\\Users\\OEM\\Desktop\\Industry Project\\IP\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\out\\classes.dex
+base.2=C\:\\Users\\OEM\\Desktop\\IP\\Industry-Project\\app\\build\\intermediates\\dex\\debug\\mergeLibDexDebug\\out\\classes_0.dex
+base.1=C\:\\Users\\OEM\\Desktop\\IP\\Industry-Project\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\out\\classes.dex
+base.0=C\:\\Users\\OEM\\Desktop\\IP\\Industry-Project\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\out\\classes.dex

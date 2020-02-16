@@ -66,5 +66,9 @@ dependencies {
 
     implementation 'com.github.bmarrdev:android-DecoView-charting:v1.2'
 
+    implementation project(':progressviewslib')
+
+
+
 
 }

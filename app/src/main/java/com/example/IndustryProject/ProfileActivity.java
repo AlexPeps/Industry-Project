@@ -182,7 +182,7 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
         PrimaryDrawerItem item1 = new PrimaryDrawerItem().withIdentifier(1).withName("Update Account Details").withIcon(getResources().getDrawable(R.drawable.ic_pizza));
         SecondaryDrawerItem item2 = new SecondaryDrawerItem().withIdentifier(2).withName("Update Body Details").withIcon(getResources().getDrawable(R.drawable.ic_account_box_24px));
         SecondaryDrawerItem item3 = new SecondaryDrawerItem().withIdentifier(3).withName("Delete Account").withIcon(getResources().getDrawable(R.drawable.ic_delete_24px));
-        SecondaryDrawerItem item4 = new SecondaryDrawerItem().withIdentifier(4).withName("Overview").withIcon(getResources().getDrawable(R.drawable.calories));
+        SecondaryDrawerItem item4 = new SecondaryDrawerItem().withIdentifier(4).withName("Food Overview").withIcon(getResources().getDrawable(R.drawable.calories));
 
 //create the drawer and remember the `Drawer` result object
         Drawer result = new DrawerBuilder()
