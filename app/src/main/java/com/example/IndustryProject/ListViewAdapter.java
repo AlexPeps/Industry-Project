@@ -24,7 +24,7 @@ public class ListViewAdapter extends ArrayAdapter {
     private ArrayList foodList = new ArrayList();
 
     static class FoodViewHolder {
-        TextView description;
+        TextView ID;
         TextView calories;
         TextView name;
         ImageView image;
@@ -69,17 +69,17 @@ public class ListViewAdapter extends ArrayAdapter {
             row = inflater.inflate(R.layout.layout_user_list, parent, false);
             viewHolder = new FoodViewHolder();
             viewHolder.name = (TextView) row.findViewById(R.id.user_item_card_list_name);
-            viewHolder.description = (TextView) row.findViewById(R.id.user_item_card_list_description);
-            viewHolder.calories = (TextView) row.findViewById(R.id.user_item_card_list_calories);
+            viewHolder.ID = (TextView) row.findViewById(R.id.user_item_card_list_ID);
+            viewHolder.calories = (TextView) row.findViewById(R.id.user_item_card_list_caloriesActual);
             viewHolder.button =(Button) row.findViewById(R.id.button_display);
             row.setTag(viewHolder);
         } else {
             viewHolder = (FoodViewHolder) row.getTag();
         }
         String[] stat = (String[]) getItem(position);
-        viewHolder.name.setText(stat[0]);
-        viewHolder.description.setText(stat[1]);
-        viewHolder.calories.setText(stat[2]);
+        viewHolder.calories.setText("Calories:" + " " + stat[0]);
+        viewHolder.name.setText("Food Item:" + " " + stat[2]);
+        viewHolder.ID.setText("Food ID:" + " " +stat[1]);
         viewHolder.button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -87,7 +87,7 @@ public class ListViewAdapter extends ArrayAdapter {
                 FoodItems foodItems = new FoodItems();
                 foodItems.setFoodName(viewHolder.name.toString());
                 foodItems.setCalories(viewHolder.calories.toString());
-                foodItems.setFoodDescription(viewHolder.description.toString());
+                foodItems.setFoodDescription(viewHolder.ID.toString());
 
 
                 InsertFoodItemActivity.InsertFoodItem insertFoodItem = new InsertFoodItemActivity.InsertFoodItem();

@@ -2141,8 +2141,8 @@ int id unlabeled 0x7f0901a9
 int id up 0x7f0901aa
 int id useLogo 0x7f0901ab
 int id user_item_card 0x7f0901ac
-int id user_item_card_list_calories 0x7f0901ad
-int id user_item_card_list_description 0x7f0901ae
+int id user_item_card_list_ID 0x7f0901ad
+int id user_item_card_list_caloriesActual 0x7f0901ae
 int id user_item_card_list_name 0x7f0901af
 int id user_list_recycler_view 0x7f0901b0
 int id view_offset_helper 0x7f0901b1

@@ -212,36 +212,6 @@ public class FoodSummaryActivity extends AppCompatActivity {
             }
         });
 
-//        Firebase ref = new Firebase("https://healthkit.firebaseio.com/Calories");
-//        Query queryRef = ref.child(LoginActivity.USER_ID).orderByChild("steps");
-//
-//        queryRef.addChildEventListener(new ChildEventListener() {
-//            @Override
-//            public void onChildAdded(DataSnapshot snapshot, String previousChild) {
-//                String facts = (String) snapshot.getValue();
-//                System.out.println(snapshot.getKey() + " was " + facts + " meters tall");
-//            }
-//
-//            @Override
-//            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
-//
-//            }
-//
-//            @Override
-//            public void onChildRemoved(DataSnapshot dataSnapshot) {
-//
-//            }
-//
-//            @Override
-//            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(FirebaseError firebaseError) {
-//
-//            }
-//        });
     }
 
 
