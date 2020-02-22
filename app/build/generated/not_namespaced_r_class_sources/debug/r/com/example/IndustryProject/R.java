@@ -6816,8 +6816,8 @@ public final class R {
     public static final int up=0x7f0901aa;
     public static final int useLogo=0x7f0901ab;
     public static final int user_item_card=0x7f0901ac;
-    public static final int user_item_card_list_calories=0x7f0901ad;
-    public static final int user_item_card_list_description=0x7f0901ae;
+    public static final int user_item_card_list_ID=0x7f0901ad;
+    public static final int user_item_card_list_caloriesActual=0x7f0901ae;
     public static final int user_item_card_list_name=0x7f0901af;
     public static final int user_list_recycler_view=0x7f0901b0;
     public static final int view_offset_helper=0x7f0901b1;
