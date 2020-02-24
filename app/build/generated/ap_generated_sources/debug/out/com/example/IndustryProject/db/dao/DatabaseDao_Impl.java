@@ -533,4 +533,32 @@ public final class DatabaseDao_Impl implements DatabaseDao {
       _statement.release();
     }
   }
+
+  @Override
+  public List<FoodItems> getAllFoodItems() {
+    final String _sql = "select * from FoodItems";
+    final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 0);
+    __db.assertNotSuspendingTransaction();
+    final Cursor _cursor = DBUtil.query(__db, _statement, false);
+    try {
+      final int _cursorIndexOfFOD = CursorUtil.getColumnIndexOrThrow(_cursor, "Food Items ID");
+      final int _cursorIndexOfFoodName = CursorUtil.getColumnIndexOrThrow(_cursor, "Food Name");
+      final int _cursorIndexOfFoodDescription = CursorUtil.getColumnIndexOrThrow(_cursor, "Food Description");
+      final int _cursorIndexOfCalories = CursorUtil.getColumnIndexOrThrow(_cursor, "Calories");
+      final List<FoodItems> _result = new ArrayList<FoodItems>(_cursor.getCount());
+      while(_cursor.moveToNext()) {
+        final FoodItems _item;
+        _item = new FoodItems();
+        _item.FOD = _cursor.getInt(_cursorIndexOfFOD);
+        _item.foodName = _cursor.getString(_cursorIndexOfFoodName);
+        _item.foodDescription = _cursor.getString(_cursorIndexOfFoodDescription);
+        _item.calories = _cursor.getString(_cursorIndexOfCalories);
+        _result.add(_item);
+      }
+      return _result;
+    } finally {
+      _cursor.close();
+      _statement.release();
+    }
+  }
 }

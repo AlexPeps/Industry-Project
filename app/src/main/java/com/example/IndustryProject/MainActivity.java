@@ -4,6 +4,7 @@ package com.example.IndustryProject;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.IndustryProject.db.dao.DatabaseDao;
 import com.example.IndustryProject.db.AppDB;
+import com.example.IndustryProject.db.model.FoodItems;
 import com.example.IndustryProject.db.model.User;
 
 
@@ -31,6 +33,8 @@ public class MainActivity extends AppCompatActivity  {
     public static float user_fat = 0f;
     public static float user_carbs = 0f;
     public static float user_protein = 0f;
+    DatabaseDao databaseDao;
+    FoodItems foodItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,11 +44,30 @@ public class MainActivity extends AppCompatActivity  {
         userDao = AppDB.createAppDBInstance(this).getDao();
         TextEnterUsername = findViewById(R.id.TextEnterUsername);
         TextEnterPassword = findViewById(R.id.TextEnterPassword);
+        getUserInfo();
+
+
 
         //List<Student> list = userDao.readAllStudents();
 
 //        Toast.makeText(this, "Students read from DB " + list.size(),
 //                Toast.LENGTH_LONG).show();
+
+    }
+    private void getUserInfo(){
+
+        new FoodItemDB().execute();
+
+
+//        if (foodItems.getCalories().isEmpty()) {
+//            calRef = 0;
+//
+//        }
+//
+//        else
+//            {
+//                calRef = Float.parseFloat(foodItems.getCalories().toString());
+//            }
 
     }
 
@@ -105,6 +128,33 @@ public class MainActivity extends AppCompatActivity  {
             } else {
                 checkPassword(users.get(0));
             }
+        }
+    }
+
+
+
+    private class FoodItemDB extends AsyncTask<Void, Void, Void>{
+        List<FoodItems> foodItems = null;
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            foodItems = userDao.getAllFoodItems();
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+
+            for (FoodItems food : foodItems) {
+                //set calories to be displayed in overview page
+                calRef += Float.parseFloat(food.getCalories());
+            }
+
+               // calRef = Float.valueOf(food.calories);
+                //Log.d("FoodItemDB", "SUM" +sum);
+
+
         }
     }
 }

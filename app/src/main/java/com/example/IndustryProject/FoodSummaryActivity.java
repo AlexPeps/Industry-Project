@@ -26,9 +26,13 @@ public class FoodSummaryActivity extends AppCompatActivity {
     public static float calorieMax = 0f;
     float food_calories;
 
+
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_summary);
+
+        food_calories = MainActivity.calRef;
 
 
         //food_calories = Food_MyRecyclerViewAdapter.caloriecount;
@@ -77,6 +81,7 @@ public class FoodSummaryActivity extends AppCompatActivity {
         steps.startAnimation(translation);
         //steps.setProgressIndeterminateAnimation(1000);
         // Food Progress Bar
+        /*
         if (food_calories > 0) {
             food.setProgress((100 * (food_calories)) / calorieMax);
             food.setText(food_calories + "/ " + calorieMax);
@@ -84,7 +89,10 @@ public class FoodSummaryActivity extends AppCompatActivity {
             food.setProgress((100 * (MainActivity.calRef)) / calorieMax);
             food.setText(MainActivity.calRef + "/ " + calorieMax);
         }
-        food.setWidth(200);
+
+         */
+        food.setProgress((100 * (food_calories)) / calorieMax);
+        food.setText(food_calories + "/ " + calorieMax);
         food.setWidthProgressBackground(25);
         food.setWidthProgressBarLine(40);
         food.setTextSize(70);
@@ -160,48 +168,8 @@ public class FoodSummaryActivity extends AppCompatActivity {
         });
 
 
-        // On Touch Listeners for Image animations
-/*
-        food_summary.setOnTouchListener(new View.OnTouchListener() {
-            private Rect rect;
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if(event.getAction() == MotionEvent.ACTION_DOWN){
-                    food_summary.setColorFilter(Color.argb(31, 58, 147, 0));
-                    rect = new Rect(v.getLeft(), v.getTop(), v.getRight(), v.getBottom());
-                }
-                if(event.getAction() == MotionEvent.ACTION_UP){
-                    food_summary.setColorFilter(Color.argb(0, 0, 0, 0));
-                }
-                if(event.getAction() == MotionEvent.ACTION_MOVE){
-                    if(!rect.contains(v.getLeft() + (int) event.getX(), v.getTop() + (int) event.getY())){
-                        food_summary.setColorFilter(Color.argb(0, 0, 0, 0));
-                    }
-                }
-                return false;
-            }
-        });
 
-        share_a_run.setOnTouchListener(new View.OnTouchListener() {
-            private Rect rect;
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                if(event.getAction() == MotionEvent.ACTION_DOWN){
-                    share_a_run.setColorFilter(Color.argb(31, 58, 147, 0));
-                    rect = new Rect(v.getLeft(), v.getTop(), v.getRight(), v.getBottom());
-                }
-                if(event.getAction() == MotionEvent.ACTION_UP){
-                    share_a_run.setColorFilter(Color.argb(0, 0, 0, 0));
-                }
-                if(event.getAction() == MotionEvent.ACTION_MOVE){
-                    if(!rect.contains(v.getLeft() + (int) event.getX(), v.getTop() + (int) event.getY())){
-                        share_a_run.setColorFilter(Color.argb(0, 0, 0, 0));
-                    }
-                }
-                return false;
-            }
-        });
-*/
+
         // Add Calories
         ImageView addcal = (ImageView) findViewById(R.id.addcalories);
         addcal.setOnClickListener(new View.OnClickListener() {
@@ -211,6 +179,7 @@ public class FoodSummaryActivity extends AppCompatActivity {
                 startActivity(intent1);
             }
         });
+
 
     }
 
