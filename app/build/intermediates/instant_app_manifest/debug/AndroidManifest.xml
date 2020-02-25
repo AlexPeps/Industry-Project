@@ -22,6 +22,7 @@
         <activity android:name="com.example.IndustryProject.FoodSummaryActivity" />
         <activity android:name="com.example.IndustryProject.UserInformationActivity" />
         <activity android:name="com.example.IndustryProject.AddUserAcitivity" />
+        <activity android:name="com.example.IndustryProject.Food_RecyclerFrag_Main" />
         <activity
             android:name="com.example.IndustryProject.SplashActivity"
             android:theme="@style/SplashTheme" >

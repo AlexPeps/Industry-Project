@@ -1,13 +1,19 @@
 package com.example.IndustryProject;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
+
+import androidx.appcompat.widget.Toolbar;
+
+import com.example.IndustryProject.db.model.FoodItems;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -21,8 +27,11 @@ public class SearchActivity extends Activity {
     EditText editTextSearch;
     ArrayList<String> arrayList ;
     private ArrayList foodList = new ArrayList();
+    public static final String FOOD_OBJECT= "FOOD_OBJECT";
+    FoodItems foodItems;
 
     List<String[]> mFoodList;
+
 
 
 
@@ -48,6 +57,9 @@ public class SearchActivity extends Activity {
 
         listView = (ListView) findViewById(R.id.listFood);
         ListViewAdapter = new ListViewAdapter(getApplicationContext(), R.layout.item_layout);
+
+
+
 
 
         Parcelable state = listView.onSaveInstanceState();
@@ -76,6 +88,10 @@ public class SearchActivity extends Activity {
             arrayList.add(mFoodList.get(i)[2]);
         }
 
+
+
+
+
         //adding a TextChangedListener
         //to call a method whenever there is some change on the EditText
         editTextSearch.addTextChangedListener(new TextWatcher() {
@@ -97,11 +113,24 @@ public class SearchActivity extends Activity {
 
             });
 
+        //set toolbar
+        //back button to send data with intent
 
-        }
+        Toolbar toolbar = findViewById(R.id.my_toolbar);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(getApplicationContext(), ProfileActivity.class );
+                intent.putExtra(FOOD_OBJECT, foodItems);
+                startActivity(intent);
+
+            }
+        });
 
 
 
+    }
 
             //filter from https://www.simplifiedcoding.net/search-functionality-recyclerview/
 
@@ -125,7 +154,9 @@ public class SearchActivity extends Activity {
         ListViewAdapter.filterList(filteredList);
     }
 
-}
+
+
+    }
 
 
 
