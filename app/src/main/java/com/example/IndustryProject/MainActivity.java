@@ -44,6 +44,9 @@ public class MainActivity extends AppCompatActivity {
         userDao = AppDB.createAppDBInstance(this).getDao();
         TextEnterUsername = findViewById(R.id.TextEnterUsername);
         TextEnterPassword = findViewById(R.id.TextEnterPassword);
+        getUserInfo();
+
+
 
         try {
             getUserInfo();
@@ -69,6 +72,22 @@ public class MainActivity extends AppCompatActivity {
             {
                 calRef = Float.parseFloat(foodItems.getCalories().toString());
             }
+
+    }
+    private void getUserInfo(){
+
+        new FoodItemDB().execute();
+
+
+//        if (foodItems.getCalories().isEmpty()) {
+//            calRef = 0;
+//
+//        }
+//
+//        else
+//            {
+//                calRef = Float.parseFloat(foodItems.getCalories().toString());
+//            }
 
     }
 
@@ -129,6 +148,33 @@ public class MainActivity extends AppCompatActivity {
             } else {
                 checkPassword(users.get(0));
             }
+        }
+    }
+
+
+
+    private class FoodItemDB extends AsyncTask<Void, Void, Void>{
+        List<FoodItems> foodItems = null;
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            foodItems = userDao.getAllFoodItems();
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+
+            for (FoodItems food : foodItems) {
+                //set calories to be displayed in overview page
+                calRef += Float.parseFloat(food.getCalories());
+            }
+
+               // calRef = Float.valueOf(food.calories);
+                //Log.d("FoodItemDB", "SUM" +sum);
+
+
         }
     }
 }

@@ -12,6 +12,7 @@
         <activity android:name=".FoodSummaryActivity" />
         <activity android:name=".UserInformationActivity" />
         <activity android:name=".AddUserAcitivity" />
+        <activity android:name=".Food_RecyclerFrag_Main" />
         <activity
             android:name=".SplashActivity"
             android:theme="@style/SplashTheme">

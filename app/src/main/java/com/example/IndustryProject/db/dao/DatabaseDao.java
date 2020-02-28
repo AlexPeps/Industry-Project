@@ -24,6 +24,8 @@ public interface DatabaseDao {
     @Query("select * from Users where user_name like :uName")
     List<User> searchUserByUserName(String uName);
 
+    @Query("select * from FoodItems")
+    List<FoodItems> getAllFoodItems();
 
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
@@ -41,6 +43,7 @@ public interface DatabaseDao {
 
     @Update
     int updateUsers(User user);
+
     @Update
     int UpdateBody(BodyDetails bodyDetail);
 

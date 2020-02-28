@@ -1,10 +1,27 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\OEM\\Desktop\\IP\\Industry-Project\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
+            "outputFile": "C:\\Users\\admalexp\\Documents\\Industry-Project-master\\Industry-Project\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-land\\values-land.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\OEM\\.gradle\\caches\\transforms-2\\files-2.1\\cb634fe4b4d1fdfcd5255e485d30a0c1\\material-1.0.0\\res\\values-land\\values-land.xml",
+                    "source": "C:\\Users\\alexp.HORODC\\.gradle\\caches\\transforms-2\\files-2.1\\142d1c0d844115d823cb1828ffd5fbc2\\jetified-card-form-3.1.1\\res\\values-land\\values-land.xml",
+                    "from": {
+                        "startLines": "2,3,4",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "55,119,192",
+                        "endColumns": "63,72,72",
+                        "endOffsets": "114,187,260"
+                    },
+                    "to": {
+                        "startLines": "5,6,7",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "264,328,401",
+                        "endColumns": "63,72,72",
+                        "endOffsets": "323,396,469"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\alexp.HORODC\\.gradle\\caches\\transforms-2\\files-2.1\\cb634fe4b4d1fdfcd5255e485d30a0c1\\material-1.0.0\\res\\values-land\\values-land.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -23,24 +40,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\OEM\\.gradle\\caches\\transforms-2\\files-2.1\\93a906085c1a857ba7f172803575a815\\jetified-card-form-3.1.1\\res\\values-land\\values-land.xml",
-                    "from": {
-                        "startLines": "2,3,4",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "55,119,192",
-                        "endColumns": "63,72,72",
-                        "endOffsets": "114,187,260"
-                    },
-                    "to": {
-                        "startLines": "5,6,7",
-                        "startColumns": "4,4,4",
-                        "startOffsets": "264,328,401",
-                        "endColumns": "63,72,72",
-                        "endOffsets": "323,396,469"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\OEM\\.gradle\\caches\\transforms-2\\files-2.1\\37ec02f661e3547c5499ecdfd9f3cd1f\\appcompat-1.1.0\\res\\values-land\\values-land.xml",
+                    "source": "C:\\Users\\alexp.HORODC\\.gradle\\caches\\transforms-2\\files-2.1\\37ec02f661e3547c5499ecdfd9f3cd1f\\appcompat-1.1.0\\res\\values-land\\values-land.xml",
                     "from": {
                         "startLines": "2,3,4",
                         "startColumns": "4,4,4",

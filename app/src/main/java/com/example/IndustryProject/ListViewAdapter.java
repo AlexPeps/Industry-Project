@@ -77,7 +77,7 @@ public class ListViewAdapter extends ArrayAdapter {
             viewHolder = (FoodViewHolder) row.getTag();
         }
         String[] stat = (String[]) getItem(position);
-        viewHolder.calories.setText("Calories:" + " " + stat[0]);
+        viewHolder.calories.setText(stat[0]);
         viewHolder.name.setText("Food Item:" + " " + stat[2]);
         viewHolder.ID.setText("Food ID:" + " " +stat[1]);
         viewHolder.button.setOnClickListener(new View.OnClickListener() {
@@ -85,12 +85,12 @@ public class ListViewAdapter extends ArrayAdapter {
             public void onClick(View view) {
 
                 FoodItems foodItems = new FoodItems();
-                foodItems.setFoodName(viewHolder.name.toString());
-                foodItems.setCalories(viewHolder.calories.toString());
-                foodItems.setFoodDescription(viewHolder.ID.toString());
+                foodItems.setFoodName(viewHolder.name.getText().toString());
+                foodItems.setCalories(viewHolder.calories.getText().toString());
+                foodItems.setFoodDescription(viewHolder.ID.getText().toString());
 
 
-                InsertFoodItemActivity.InsertFoodItem insertFoodItem = new InsertFoodItemActivity.InsertFoodItem();
+                new InsertFoodItemActivity.InsertFoodItem().execute(foodItems);
                 Toast.makeText(getContext(), viewHolder.name.getText() + " " +"food Item added", Toast.LENGTH_LONG).show();
             }
         });
