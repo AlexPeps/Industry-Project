@@ -30,10 +30,6 @@ public class SearchActivity extends Activity {
     EditText editTextSearch;
     ArrayList<String> arrayList ;
     private ArrayList foodList = new ArrayList();
-<<<<<<< HEAD
-=======
-    public static final String FOOD_OBJECT= "FOOD_OBJECT";
->>>>>>> e929f50b7f61b9744a867d0b96ae6b34a8b77147
     FoodItems foodItems;
 
     List<String[]> mFoodList;

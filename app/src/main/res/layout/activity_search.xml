@@ -14,7 +14,6 @@
         android:orientation="vertical">
 
         <androidx.appcompat.widget.Toolbar
-<<<<<<< HEAD
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -22,14 +21,6 @@
             android:elevation="5dp"
             android:minHeight="?attr/actionBarSize"
             app:navigationIcon="?attr/homeAsUpIndicator"/>
-=======
-            android:id="@+id/my_toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorPrimary"
-            app:navigationIcon="?attr/homeAsUpIndicator"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark"/>
->>>>>>> e929f50b7f61b9744a867d0b96ae6b34a8b77147
 
         <EditText
             android:layout_width="fill_parent"
