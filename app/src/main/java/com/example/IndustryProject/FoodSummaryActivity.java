@@ -15,6 +15,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
+import com.example.IndustryProject.db.dao.DatabaseDao;
+import com.example.IndustryProject.db.model.FoodItems;
 import com.google.android.material.navigation.NavigationView;
 import com.natasa.progressviews.CircleProgressBar;
 import com.natasa.progressviews.utils.OnProgressViewListener;
@@ -25,15 +27,19 @@ public class FoodSummaryActivity extends AppCompatActivity {
     public static float stepMax = 0f;
     public static float calorieMax = 0f;
     float food_calories;
+    FoodItems foodItems;
+    DatabaseDao databaseDao;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_summary);
 
 
-        //food_calories = Food_MyRecyclerViewAdapter.caloriecount;
+
+
+
         Log.d("Calories for Overview", String.valueOf(Food_RecyclerFrag_Main.calRef1));
-        // Setting Steps and Calories
+        // Setting Steps and CaloriesFood_RecyclerFrag_Main
         stepMax = GoalsActivity.mSeries;
         if (stepMax == 0) {
             stepMax = GoalsActivity.mSeries1;

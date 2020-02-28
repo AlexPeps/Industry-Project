@@ -4,6 +4,7 @@ package com.example.IndustryProject;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 
 import com.example.IndustryProject.db.dao.DatabaseDao;
 import com.example.IndustryProject.db.AppDB;
+import com.example.IndustryProject.db.model.FoodItems;
 import com.example.IndustryProject.db.model.User;
 
 
@@ -18,19 +20,21 @@ import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity  {
+public class MainActivity extends AppCompatActivity {
 
 
     public static final String GOALS_OBJECT = "GOALS_OBJECT";
     public static DatabaseDao userDao;
     EditText TextEnterUsername, TextEnterPassword;
-    public static final String USER_OBJECT= "USER_OBJECT";
+    public static final String USER_OBJECT = "USER_OBJECT";
     public static float mSeries1 = 0f;
     public static float mSeries2 = 0f;
     public static float calRef = 0f;
     public static float user_fat = 0f;
     public static float user_carbs = 0f;
     public static float user_protein = 0f;
+    DatabaseDao databaseDao;
+    FoodItems foodItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,10 +45,30 @@ public class MainActivity extends AppCompatActivity  {
         TextEnterUsername = findViewById(R.id.TextEnterUsername);
         TextEnterPassword = findViewById(R.id.TextEnterPassword);
 
-        //List<Student> list = userDao.readAllStudents();
+        try {
+            getUserInfo();
 
-//        Toast.makeText(this, "Students read from DB " + list.size(),
-//                Toast.LENGTH_LONG).show();
+        }
+         catch (Exception e){
+
+
+         }
+
+
+
+
+
+    }
+    private void getUserInfo(){
+        if (foodItems.getCalories().isEmpty()) {
+            calRef = 0;
+
+        }
+
+        else
+            {
+                calRef = Float.parseFloat(foodItems.getCalories().toString());
+            }
 
     }
 

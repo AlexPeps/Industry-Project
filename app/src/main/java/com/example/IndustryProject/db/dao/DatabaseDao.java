@@ -25,6 +25,7 @@ public interface DatabaseDao {
     List<User> searchUserByUserName(String uName);
 
 
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     long insertUsers(User user);
 

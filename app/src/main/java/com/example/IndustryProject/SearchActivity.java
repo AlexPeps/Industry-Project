@@ -1,13 +1,18 @@
 package com.example.IndustryProject;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
+import androidx.appcompat.widget.Toolbar;
+
+import com.example.IndustryProject.db.model.FoodItems;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -21,10 +26,11 @@ public class SearchActivity extends Activity {
     EditText editTextSearch;
     ArrayList<String> arrayList ;
     private ArrayList foodList = new ArrayList();
+    FoodItems foodItems;
 
     List<String[]> mFoodList;
 
-
+    public static final String FOOD_OBJECT = "FOOD_OBJECT";
 
 
     private static final String TAG = "SearchActivity";
@@ -38,6 +44,18 @@ public class SearchActivity extends Activity {
         //csv read using the below example with a few changes
 
         //https://javapapers.com/android/android-read-csv-file/
+
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // back button pressed
+                Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+                intent.putExtra(FOOD_OBJECT, foodItems);
+                startActivity(intent);
+            }
+        });
 
 
 
