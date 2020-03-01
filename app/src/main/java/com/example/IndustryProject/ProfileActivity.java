@@ -319,10 +319,6 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
     }
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 3a9383a5efb0827f3476168cf027c462fd6f8c41
     // Step Counter
 
     @Override
