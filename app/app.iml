@@ -28,7 +28,6 @@
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7">
     <output url="file://$MODULE_DIR$/build/intermediates/javac/debug/classes" />
     <output-test url="file://$MODULE_DIR$/build/intermediates/javac/debugUnitTest/classes" />
-    <exclude-output />
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/build/generated/ap_generated_sources/debug/out" isTestSource="false" generated="true" />
       <sourceFolder url="file://$MODULE_DIR$/build/generated/aidl_source_output_dir/debug/compileDebugAidl/out" isTestSource="false" generated="true" />
@@ -167,10 +166,17 @@
     <orderEntry type="library" name="Gradle: androidx.constraintlayout:constraintlayout:1.1.3@aar" level="project" />
     <orderEntry type="module" module-name="progressviewslib" />
     <orderEntry type="module" module-name="progressviewslib" />
+<<<<<<< HEAD
     <orderEntry type="module" module-name="progressviewslib" />
+<<<<<<< HEAD
 <<<<<<< HEAD
     <orderEntry type="module" module-name="progressviewslib" />
 =======
 >>>>>>> 3a9383a5efb0827f3476168cf027c462fd6f8c41
+=======
+    <orderEntry type="module" module-name="progressviewslib" />
+=======
+>>>>>>> e929f50b7f61b9744a867d0b96ae6b34a8b77147
+>>>>>>> parent of 3a9383a... 1/3
   </component>
 </module>

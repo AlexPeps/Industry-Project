@@ -7,7 +7,6 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 
-import com.example.IndustryProject.db.AppDB;
 import com.example.IndustryProject.db.model.User;
 
 
@@ -80,8 +79,7 @@ public class AddUserAcitivity extends AppCompatActivity {
 
         @Override
         protected Void doInBackground(User... users) {
-           // insertionResult = MainActivity.userDao.insertUsers(users[0]);
-            insertionResult = AppDB.instance().getDao().insertUsers(users[0]);
+            insertionResult = MainActivity.userDao.insertUsers(users[0]);
             return null;
         }
 

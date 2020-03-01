@@ -27,15 +27,16 @@ import androidx.core.app.ActivityOptionsCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import com.example.IndustryProject.db.AppDB;
 >>>>>>> 3a9383a5efb0827f3476168cf027c462fd6f8c41
 import com.example.IndustryProject.db.dao.DatabaseDao;
+=======
+>>>>>>> parent of 3a9383a... 1/3
 import com.example.IndustryProject.db.model.BodyDetails;
-import com.example.IndustryProject.db.model.FoodItems;
 import com.example.IndustryProject.db.model.Goals;
 import com.example.IndustryProject.db.model.User;
-import com.example.IndustryProject.utils.Constant;
 import com.google.android.material.navigation.NavigationView;
 import com.hookedonplay.decoviewlib.DecoView;
 import com.hookedonplay.decoviewlib.charts.DecoDrawEffect;
@@ -56,9 +57,7 @@ import java.util.List;
 
 public class ProfileActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, SensorEventListener {
 
-
     public static float evsteps;
-    public static float calRef1 = 0f;
     public static int cont = 0;
     public static float mSeriesMax = 0f;
     public static DatabaseDao userDao;
@@ -68,15 +67,14 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
     TextView firstName, lastName, mobile, userName, name, age, bmr, lifestyle, weight, height;
     ImageView image;
     User user;
-    FoodItems foodItems;
     BodyDetails bodyDetails;
     FoodItems foodItems;
     private DecoView mDecoView;
+    public static final String USER_OBJECT = "USER_OBJECT";
     private TextView textView;
     private int mBackIndex;
     private int mSeries1Index;
     private SensorManager sensorManager;
-    int updateResult;
 
 
 
@@ -97,6 +95,7 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         user = (User) getIntent().getSerializableExtra(MainActivity.USER_OBJECT);
         user = (User) getIntent().getSerializableExtra(SearchActivity.USER_OBJECT);
@@ -111,10 +110,13 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
         bodyDetails = (BodyDetails) getIntent().getSerializableExtra(Constant.BODY_OBJECT);
         foodItems = (FoodItems) getIntent().getSerializableExtra(Constant.FOOD_OBJECT);
 >>>>>>> 3a9383a5efb0827f3476168cf027c462fd6f8c41
+=======
+        user = (User) getIntent().getSerializableExtra(MainActivity.USER_OBJECT);
+        goals = (Goals) getIntent().getSerializableExtra(MainActivity.GOALS_OBJECT);
+        bodyDetails = (BodyDetails) getIntent().getSerializableExtra(UpdateBodyDetailsActivity.BODY_OBJECT);
+>>>>>>> parent of 3a9383a... 1/3
 
-        updateResult = -1;
         deleteResult = -1;
-
 
         mSeriesMax = GoalsActivity.mSeries;
 
@@ -124,8 +126,9 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
         Log.d("SetGoal mseries", String.valueOf(GoalsActivity.mSeries));
         if (mSeriesMax == 0) {
 
-            mSeriesMax = Float.parseFloat(goals.getStepGoal().toString());
+           mSeriesMax = Float.parseFloat(goals.getStepGoal().toString());
         }
+
 
 
         mDecoView = (DecoView) findViewById(R.id.dynamicArcView);
@@ -144,10 +147,6 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
             @Override
             public void onClick(View v) {
                 Intent intent1 = new Intent(ProfileActivity.this, SearchActivity.class);
-                intent1.putExtra(Constant.FOOD_OBJECT, foodItems);
-                intent1.putExtra(Constant.BODY_OBJECT, bodyDetails);
-                intent1.putExtra(Constant.USER_OBJECT, user);
-
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     ActivityOptionsCompat options = ActivityOptionsCompat.
                             makeSceneTransitionAnimation(ProfileActivity.this, v, "testAnimation");
@@ -181,14 +180,17 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
 
         new DrawerBuilder().withActivity(this).build();
 
+        DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+
+
+
+
 
         // Create the AccountHeader
         AccountHeader headerResult = new AccountHeaderBuilder()
                 .withActivity(this)
                 //.withHeaderBackground(R.drawable.header)
                 .addProfiles(
-
-
                         new ProfileDrawerItem().withName(user.getFirstName() + " " + user.getLastName()).withEmail(user.getMobileNumber()).withIcon(getDrawable(R.drawable.ic_pizza)
 
 
@@ -204,6 +206,8 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
                 })
 
                 .build();
+
+
 
 
         //if you want to update the items at a later time it is recommended to keep it in a variable
@@ -224,6 +228,7 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
                         item4
 
 
+
                 )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
@@ -235,7 +240,7 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
                             case 1:
 
                                 Intent AccountIntentDrawer = new Intent(getApplicationContext(), UserInformationActivity.class);
-                                AccountIntentDrawer.putExtra(Constant.USER_OBJECT, user);
+                                AccountIntentDrawer.putExtra(USER_OBJECT, user);
                                 startActivity(AccountIntentDrawer);
 
                                 break;
@@ -244,9 +249,7 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
                             case 2://can put intent here etc
 
                                 Intent BodyIntent = new Intent(getApplicationContext(), UpdateBodyDetailsActivity.class);
-                                BodyIntent.putExtra(Constant.BODY_OBJECT, bodyDetails);
-                                BodyIntent.putExtra(Constant.USER_OBJECT, user);
-                                BodyIntent.putExtra(Constant.GOALS_OBJECT, goals);
+                                BodyIntent.putExtra(USER_OBJECT, user);
                                 startActivity(BodyIntent);
 
                                 break;
@@ -278,46 +281,22 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
 
                             case 4:
 
+                                Intent OverviewIntent = new Intent(getApplicationContext(), FoodSummaryActivity.class);
+                                OverviewIntent.putExtra(USER_OBJECT, user);
+                                startActivity(OverviewIntent);
 
 
-                                        Intent OverviewIntent = new Intent(getApplicationContext(), FoodSummaryActivity.class);
-                                        OverviewIntent.putExtra(Constant.USER_OBJECT, user);
-                                        OverviewIntent.putExtra(Constant.GOALS_OBJECT, goals);
-                                        OverviewIntent.putExtra(Constant.FOOD_OBJECT, foodItems);
-                                        startActivity(OverviewIntent);
-
-                                }
-
-
+                        }
                         return true;
                     }
                 })
                 .build();
+
+
         //   getUserProfileDetails();
+
+
     }
-    public class UpdateFoodItems extends AsyncTask<FoodItems, Void, Void> {
-
-        @Override
-        protected Void doInBackground(FoodItems... foodItems) {
-            updateResult = AppDB.instance().getDao().updateFoodItems(foodItems[0]);
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void aVoid) {
-            super.onPostExecute(aVoid);
-            if (updateResult == -1) {
-                Toast.makeText(getApplicationContext(),
-                        "Update failure.", Toast.LENGTH_LONG).show();
-            } else {
-                Toast.makeText(getApplicationContext(),
-                        "Update Success. User ID: " + updateResult, Toast.LENGTH_LONG).show();
-
-            }
-
-        }
-    }
-
 
     // Step Counter
 
@@ -364,6 +343,7 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
 
         mBackIndex = mDecoView.addSeries(seriesItem);
     }
+
     private void createDataSeries1() {
         final SeriesItem seriesItem = new SeriesItem.Builder(Color.parseColor("#FFFF8800"))
                 .setRange(0, mSeriesMax, 0)
@@ -562,7 +542,12 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
         }
     }
 
+    public void btnReadFile(View view) {
 
+        Intent readIntent = new Intent(this, SearchActivity.class);
+        startActivity(readIntent);
+
+    }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {

@@ -10,11 +10,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.IndustryProject.db.AppDB;
 import com.example.IndustryProject.db.model.BodyDetails;
 import com.example.IndustryProject.db.model.Goals;
 import com.example.IndustryProject.db.model.User;
-import com.example.IndustryProject.utils.Constant;
 
 public class GoalsActivity extends AppCompatActivity {
 
@@ -24,17 +22,17 @@ public class GoalsActivity extends AppCompatActivity {
     EditText etStepGoal, etCalorieGoal;
     public static float mSeries = 0f;
     public static float mSeries1 = 0f;
-
-
+    public static final String GOALS_OBJECT= "GOALS_OBJECT";
+    public static final String USER_OBJECT= "USER_OBJECT";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_goals_activity);
 
-        user = (User) getIntent().getSerializableExtra(Constant.USER_OBJECT);
-        goals = (Goals) getIntent().getSerializableExtra(Constant.GOALS_OBJECT);
-        BodyDetails body = (BodyDetails) getIntent().getSerializableExtra(Constant.BODY_OBJECT);
+        user = (User) getIntent().getSerializableExtra(MainActivity.USER_OBJECT);
+        goals = (Goals) getIntent().getSerializableExtra(GoalsActivity.GOALS_OBJECT);
+        BodyDetails body = (BodyDetails) getIntent().getSerializableExtra(InsertBodyDetailsActivity.BODY_OBJECT);
 
         insertionResult = -1;
 
@@ -73,22 +71,10 @@ public class GoalsActivity extends AppCompatActivity {
             InsertGoals insertGoals = new InsertGoals();
             insertGoals.execute(goals);
 
-            if(goals == null) {
-
-                Intent intent = new Intent(getApplicationContext(), InsertBodyDetailsActivity.class);
-                intent.putExtra(Constant.GOALS_OBJECT, goals);
-                intent.putExtra(Constant.USER_OBJECT, user);
-                startActivity(intent);
-
-            }else{
-
-                Intent profileIntent = new Intent(getApplicationContext(), ProfileActivity.class);
-                profileIntent.putExtra(Constant.GOALS_OBJECT, goals);
-                profileIntent.putExtra(Constant.USER_OBJECT, user);
-                startActivity(profileIntent);
-
-
-            }
+            Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+            intent.putExtra(GOALS_OBJECT, goals);
+            intent.putExtra(USER_OBJECT, user);
+            startActivity(intent);
 
 
 
@@ -101,8 +87,7 @@ public class GoalsActivity extends AppCompatActivity {
 
         @Override
         protected Void doInBackground(Goals... goals) {
-           // insertionResult = MainActivity.userDao.insertGoals(goals[0]);
-            insertionResult = AppDB.instance().getDao().insertGoals(goals[0]);
+            insertionResult = MainActivity.userDao.insertGoals(goals[0]);
             return null;
         }
 

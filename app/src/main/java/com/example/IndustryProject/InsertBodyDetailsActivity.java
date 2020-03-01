@@ -10,17 +10,13 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.IndustryProject.db.AppDB;
 import com.example.IndustryProject.db.model.BodyDetails;
-import com.example.IndustryProject.db.model.Goals;
 import com.example.IndustryProject.db.model.User;
-import com.example.IndustryProject.utils.Constant;
 
 public class InsertBodyDetailsActivity extends AppCompatActivity {
 
 
     User user;
-    Goals goals;
     BodyDetails bodyDetails;
     public static final String USER_OBJECT= "USER_OBJECT";
     public static final String BODY_OBJECT= "BODY_OBJECT";
@@ -35,7 +31,7 @@ public class InsertBodyDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_body_details);
 
-        user = (User) getIntent().getSerializableExtra(Constant.USER_OBJECT);
+        user = (User) getIntent().getSerializableExtra(MainActivity.USER_OBJECT);
 
         age = findViewById(R.id.et_age);
         bmr = findViewById(R.id.et_bmr);
@@ -85,8 +81,7 @@ public class InsertBodyDetailsActivity extends AppCompatActivity {
 
         @Override
         protected Void doInBackground(BodyDetails... bodyDetails) {
-           // insertionResult = MainActivity.userDao.insertBodyDetails(bodyDetails[0]);
-            insertionResult = AppDB.instance().getDao().insertBodyDetails(bodyDetails[0]);
+            insertionResult = MainActivity.userDao.insertBodyDetails(bodyDetails[0]);
             return null;
         }
 
@@ -108,10 +103,8 @@ public class InsertBodyDetailsActivity extends AppCompatActivity {
 
 
     public void stinfoCancelButtonClick(View view) {
-        Intent backIntent = new Intent(getApplicationContext(),ProfileActivity.class);
-        backIntent.putExtra(Constant.USER_OBJECT, user);
-        backIntent.putExtra(Constant.GOALS_OBJECT, goals);
-        backIntent.putExtra(Constant.BODY_OBJECT, bodyDetails);
+        Intent backIntent = new Intent(getApplicationContext(),GoalsActivity.class);
+        backIntent.putExtra(USER_OBJECT, user);
         startActivity(backIntent);
 
     }

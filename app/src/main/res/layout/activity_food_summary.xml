@@ -7,7 +7,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_weight="1"
     android:fitsSystemWindows="true"
-    tools:context=".FoodSummaryActivity"
+    tools:context=".Activity_ChangeGoal"
     android:id="@+id/drawer">
 
 
@@ -23,22 +23,22 @@
                 android:layout_height="100dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginLeft="41dp"
+                android:layout_marginLeft="60dp"
                 android:layout_marginRight="20dp"
 
-                android:layout_marginBottom="42dp"
+                android:layout_marginBottom="50dp"
                 android:background="@drawable/circle_activity2"
                 android:src="@drawable/foo" />
 
             <ImageView
                 android:id="@+id/addcalories"
-                android:layout_width="103dp"
-                android:layout_height="104dp"
+                android:layout_width="65dp"
+                android:layout_height="65dp"
                 android:layout_below="@+id/food_progress"
                 android:layout_alignEnd="@+id/food_progress"
                 android:layout_alignParentEnd="true"
-                android:layout_marginTop="299dp"
-                android:layout_marginEnd="180dp"
+                android:layout_marginTop="48dp"
+                android:layout_marginEnd="95dp"
                 android:paddingTop="10dp"
                 android:src="@drawable/foodedit" />
 
@@ -53,12 +53,11 @@
 
             <com.natasa.progressviews.CircleProgressBar
                 android:id="@+id/food_progress"
-                android:layout_width="226dp"
-                android:layout_height="243dp"
+                android:layout_width="400dp"
+                android:layout_height="400dp"
                 android:layout_alignParentRight="true"
-                android:layout_marginLeft="9dp"
                 android:layout_marginTop="50dp"
-                android:layout_marginRight="73dp"
+                android:layout_marginRight="30dp"
                 android:layout_toRightOf="@+id/step_progress"
                 app:progress_color="@color/protein"
                 app:text_color="@color/protein" />
@@ -68,21 +67,10 @@
                 android:layout_width="130dp"
                 android:layout_height="150dp"
                 android:layout_alignParentStart="true"
-                android:layout_marginStart="29dp"
+                android:layout_marginStart="11dp"
                 android:layout_marginTop="50dp"
                 app:progress_color="@color/fats"
                 app:text_color="@color/fats" />
-
-            <ImageView
-                android:id="@+id/resetGoals"
-                android:layout_width="91dp"
-                android:layout_height="112dp"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginStart="284dp"
-                android:layout_marginBottom="36dp"
-                app:srcCompat="@drawable/ic_restore_48px"
-                android:onClick="resetGoalsClick"/>
         </RelativeLayout>
 
         <androidx.appcompat.widget.Toolbar

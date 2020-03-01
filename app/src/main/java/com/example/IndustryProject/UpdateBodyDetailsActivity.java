@@ -12,17 +12,14 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.IndustryProject.db.model.BodyDetails;
-import com.example.IndustryProject.db.model.Goals;
-import com.example.IndustryProject.db.model.User;
-import com.example.IndustryProject.utils.Constant;
 
 public class UpdateBodyDetailsActivity extends AppCompatActivity {
 
-
+    public static final String BODY_OBJECT = "BODY_OBJECT";
     BodyDetails bodyDetails;
+    public static final String USER_OBJECT= "USER_OBJECT";
     int updateResult, deleteResult;
-    User user;
-    Goals goals;
+
 
     EditText age, bmr, weight, height;
     Spinner lifestyle;
@@ -32,9 +29,7 @@ public class UpdateBodyDetailsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_body_details);
 
-        user = (User) getIntent().getSerializableExtra(Constant.USER_OBJECT);
-        goals = (Goals) getIntent().getSerializableExtra(Constant.GOALS_OBJECT);
-        bodyDetails = (BodyDetails) getIntent().getSerializableExtra(Constant.BODY_OBJECT);
+        bodyDetails = (BodyDetails) getIntent().getSerializableExtra(UpdateBodyDetailsActivity.BODY_OBJECT);
 
         age = findViewById(R.id.et_age);
         bmr = findViewById(R.id.et_bmr);
@@ -113,11 +108,9 @@ public class UpdateBodyDetailsActivity extends AppCompatActivity {
         lifestyle.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-               // if(!lifestyle.getSelectedItem().toString().equals(bodyDetails.getLifestyle())){
-                   // bodyDetails.setLifestyle(lifestyle.getSelectedItem().toString());
-
-
-                //}
+                if(!lifestyle.getSelectedItem().toString().equals(bodyDetails.getLifestyle())){
+                    bodyDetails.setLifestyle(lifestyle.getSelectedItem().toString());
+                }
             }
 
             @Override
@@ -153,20 +146,13 @@ public class UpdateBodyDetailsActivity extends AppCompatActivity {
         }
     }
 
-    public void updateBodyButtonClick(View view) {
-        new UpdateBody().execute(bodyDetails);
+    public void updateBodyButtonClick(View view) { new UpdateBody().execute(bodyDetails);}
 
+    public void stinfoCancelButtonClick(View view) {
+        Intent backIntent = new Intent(getApplicationContext(),ProfileActivity.class);
+        backIntent.putExtra(BODY_OBJECT, bodyDetails);
+        startActivity(backIntent);
 
     }
-    public void stinfoCancelButtonClick(View view) {
-            Intent backIntent = new Intent(getApplicationContext(),ProfileActivity.class);
-            backIntent.putExtra(Constant.BODY_OBJECT, bodyDetails);
-            backIntent.putExtra(Constant.USER_OBJECT, user);
-            backIntent.putExtra(Constant.GOALS_OBJECT, goals);
-            startActivity(backIntent);}
-        }
 
-
-
-
-
+}

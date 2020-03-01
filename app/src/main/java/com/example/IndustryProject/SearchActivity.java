@@ -2,7 +2,6 @@ package com.example.IndustryProject;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.text.Editable;
@@ -13,20 +12,21 @@ import android.widget.EditText;
 import android.widget.ListView;
 import androidx.appcompat.widget.Toolbar;
 
-import com.example.IndustryProject.db.dao.DatabaseDao;
-import com.example.IndustryProject.db.model.BodyDetails;
 import com.example.IndustryProject.db.model.FoodItems;
 
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.IndustryProject.db.dao.DatabaseDao;
 import com.example.IndustryProject.db.model.FoodItems;
+<<<<<<< HEAD
 
 import com.example.IndustryProject.db.model.User;
 
 import com.example.IndustryProject.db.model.Goals;
 import com.example.IndustryProject.db.model.User;
 import com.example.IndustryProject.utils.Constant;
+=======
+>>>>>>> parent of 3a9383a... 1/3
 
 
 import java.io.InputStream;
@@ -49,16 +49,16 @@ public class SearchActivity extends Activity {
     public static float calRef = 0f;
 
     FoodItems foodItems;
-    User user;
-    public static float calRef = 0f;
-    public static DatabaseDao userDao;
-
 
     List<String[]> mFoodList;
 
+<<<<<<< HEAD
     public static DatabaseDao databaseDao;
 
 
+=======
+    public static final String FOOD_OBJECT = "FOOD_OBJECT";
+>>>>>>> parent of 3a9383a... 1/3
 
 
 
@@ -80,10 +80,16 @@ public class SearchActivity extends Activity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // back button pressed
+                Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+                intent.putExtra(FOOD_OBJECT, foodItems);
+                startActivity(intent);
+            }
+        });
 
-        user = (User) getIntent().getSerializableExtra(Constant.USER_OBJECT);
-        BodyDetails body = (BodyDetails) getIntent().getSerializableExtra(Constant.BODY_OBJECT);
-        foodItems = (FoodItems) getIntent().getSerializableExtra(Constant.FOOD_OBJECT);
 
 
 
@@ -107,7 +113,7 @@ public class SearchActivity extends Activity {
 
         //uses CSVFile class in another file
 
-        final InputStream inputStream = getResources().openRawResource(R.raw.data);
+        InputStream inputStream = getResources().openRawResource(R.raw.data);
         CSVFile csvFile = new CSVFile(inputStream);
 
         //had to change list to string otherwise wouldn't work
@@ -153,13 +159,13 @@ public class SearchActivity extends Activity {
         //set toolbar
         //back button to send data with intent
 
-      //  Toolbar toolbar = findViewById(R.id.my_toolbar);
+        Toolbar toolbar = findViewById(R.id.my_toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-
                 Intent intent = new Intent(getApplicationContext(), ProfileActivity.class );
+<<<<<<< HEAD
 
                 intent.putExtra(FOOD_OBJECT, foodItems);
                 intent.putExtra(USER_OBJECT, user);
@@ -167,6 +173,9 @@ public class SearchActivity extends Activity {
                 intent.putExtra(Constant.FOOD_OBJECT, foodItems);
                 intent.putExtra(Constant.USER_OBJECT, user);
 
+=======
+                intent.putExtra(FOOD_OBJECT, foodItems);
+>>>>>>> parent of 3a9383a... 1/3
                 startActivity(intent);
                 getUserInfo();
 
@@ -177,6 +186,7 @@ public class SearchActivity extends Activity {
 
     }
 
+<<<<<<< HEAD
 
     private void getUserInfo(){
 
@@ -200,6 +210,9 @@ public class SearchActivity extends Activity {
 
 
     //filter from https://www.simplifiedcoding.net/search-functionality-recyclerview/
+=======
+            //filter from https://www.simplifiedcoding.net/search-functionality-recyclerview/
+>>>>>>> parent of 3a9383a... 1/3
 
 
     private void filter(String text) {
@@ -246,8 +259,6 @@ public class SearchActivity extends Activity {
 
         }
     }
-
-
 
 
 

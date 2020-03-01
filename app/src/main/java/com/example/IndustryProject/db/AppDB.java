@@ -16,7 +16,6 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
 
-
 @Database(entities = {User.class, Goals.class, FoodItems.class, Exercise.class, DailyGoals.class, BodyDetails.class}, version = 1, exportSchema = false)
 
 public abstract class AppDB extends RoomDatabase {
@@ -37,7 +36,4 @@ public abstract class AppDB extends RoomDatabase {
         return appDB;
     }
 
-    public static AppDB instance(){
-        return appDB;
-    }
 }
