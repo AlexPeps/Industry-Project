@@ -6,100 +6,105 @@
 6
 7    <uses-sdk
 8        android:minSdkVersion="21"
-8-->C:\Users\admalexp\Documents\Industry-Project-master\Industry-Project\app\src\main\AndroidManifest.xml
+8-->C:\Users\OEM\Desktop\IP\Industry-Project\app\src\main\AndroidManifest.xml
 9        android:targetSdkVersion="29" />
-9-->C:\Users\admalexp\Documents\Industry-Project-master\Industry-Project\app\src\main\AndroidManifest.xml
+9-->C:\Users\OEM\Desktop\IP\Industry-Project\app\src\main\AndroidManifest.xml
 10
 11    <application
-11-->C:\Users\admalexp\Documents\Industry-Project-master\Industry-Project\app\src\main\AndroidManifest.xml:5:5-35:19
-12        android:allowBackup="false"
-12-->C:\Users\admalexp\Documents\Industry-Project-master\Industry-Project\app\src\main\AndroidManifest.xml:6:9-36
-13        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-13-->[androidx.core:core:1.1.0] C:\Users\alexp.HORODC\.gradle\caches\transforms-2\files-2.1\c527b78844be871c44103f6f45a963fb\core-1.1.0\AndroidManifest.xml:24:18-86
-14        android:debuggable="true"
-15        android:icon="@drawable/ic_pizza"
-15-->C:\Users\admalexp\Documents\Industry-Project-master\Industry-Project\app\src\main\AndroidManifest.xml:7:9-42
-16        android:label="@string/app_name"
-16-->C:\Users\admalexp\Documents\Industry-Project-master\Industry-Project\app\src\main\AndroidManifest.xml:8:9-41
-17        android:roundIcon="@mipmap/ic_launcher_round"
-17-->C:\Users\admalexp\Documents\Industry-Project-master\Industry-Project\app\src\main\AndroidManifest.xml:9:9-54
-18        android:supportsRtl="true"
-18-->C:\Users\admalexp\Documents\Industry-Project-master\Industry-Project\app\src\main\AndroidManifest.xml:10:9-35
-19        android:testOnly="true"
-20        android:theme="@style/AppTheme" >
-20-->C:\Users\admalexp\Documents\Industry-Project-master\Industry-Project\app\src\main\AndroidManifest.xml:11:9-40
-21        <activity android:name="com.example.IndustryProject.FoodSummaryActivity" />
-21-->C:\Users\admalexp\Documents\Industry-Project-master\Industry-Project\app\src\main\AndroidManifest.xml:12:9-57
-21-->C:\Users\admalexp\Documents\Industry-Project-master\Industry-Project\app\src\main\AndroidManifest.xml:12:19-54
-22        <activity android:name="com.example.IndustryProject.UserInformationActivity" />
-22-->C:\Users\admalexp\Documents\Industry-Project-master\Industry-Project\app\src\main\AndroidManifest.xml:13:9-61
-22-->C:\Users\admalexp\Documents\Industry-Project-master\Industry-Project\app\src\main\AndroidManifest.xml:13:19-58
-23        <activity android:name="com.example.IndustryProject.AddUserAcitivity" />
-23-->C:\Users\admalexp\Documents\Industry-Project-master\Industry-Project\app\src\main\AndroidManifest.xml:14:9-54
-23-->C:\Users\admalexp\Documents\Industry-Project-master\Industry-Project\app\src\main\AndroidManifest.xml:14:19-51
-24        <activity android:name="com.example.IndustryProject.Food_RecyclerFrag_Main" />
-24-->C:\Users\admalexp\Documents\Industry-Project-master\Industry-Project\app\src\main\AndroidManifest.xml:15:9-60
-24-->C:\Users\admalexp\Documents\Industry-Project-master\Industry-Project\app\src\main\AndroidManifest.xml:15:19-57
-25        <activity
-25-->C:\Users\admalexp\Documents\Industry-Project-master\Industry-Project\app\src\main\AndroidManifest.xml:16:9-24:20
-26            android:name="com.example.IndustryProject.SplashActivity"
-26-->C:\Users\admalexp\Documents\Industry-Project-master\Industry-Project\app\src\main\AndroidManifest.xml:17:13-43
-27            android:theme="@style/SplashTheme" >
-27-->C:\Users\admalexp\Documents\Industry-Project-master\Industry-Project\app\src\main\AndroidManifest.xml:18:13-47
-28            <intent-filter>
-28-->C:\Users\admalexp\Documents\Industry-Project-master\Industry-Project\app\src\main\AndroidManifest.xml:19:13-23:29
-29                <action android:name="android.intent.action.MAIN" />
-29-->C:\Users\admalexp\Documents\Industry-Project-master\Industry-Project\app\src\main\AndroidManifest.xml:20:17-69
-29-->C:\Users\admalexp\Documents\Industry-Project-master\Industry-Project\app\src\main\AndroidManifest.xml:20:25-66
-30
-31                <category android:name="android.intent.category.LAUNCHER" />
-31-->C:\Users\admalexp\Documents\Industry-Project-master\Industry-Project\app\src\main\AndroidManifest.xml:22:17-77
-31-->C:\Users\admalexp\Documents\Industry-Project-master\Industry-Project\app\src\main\AndroidManifest.xml:22:27-74
-32            </intent-filter>
-33        </activity>
-34        <activity android:name="com.example.IndustryProject.MainActivity" />
-34-->C:\Users\admalexp\Documents\Industry-Project-master\Industry-Project\app\src\main\AndroidManifest.xml:25:9-50
-34-->C:\Users\admalexp\Documents\Industry-Project-master\Industry-Project\app\src\main\AndroidManifest.xml:25:19-47
-35        <activity android:name="com.example.IndustryProject.ProfileActivity" />
-35-->C:\Users\admalexp\Documents\Industry-Project-master\Industry-Project\app\src\main\AndroidManifest.xml:26:9-53
-35-->C:\Users\admalexp\Documents\Industry-Project-master\Industry-Project\app\src\main\AndroidManifest.xml:26:19-50
-36        <activity android:name="com.example.IndustryProject.UpdateBodyDetailsActivity" />
-36-->C:\Users\admalexp\Documents\Industry-Project-master\Industry-Project\app\src\main\AndroidManifest.xml:27:9-63
-36-->C:\Users\admalexp\Documents\Industry-Project-master\Industry-Project\app\src\main\AndroidManifest.xml:27:19-60
-37        <activity android:name="com.example.IndustryProject.GoalsActivity" />
-37-->C:\Users\admalexp\Documents\Industry-Project-master\Industry-Project\app\src\main\AndroidManifest.xml:28:9-51
-37-->C:\Users\admalexp\Documents\Industry-Project-master\Industry-Project\app\src\main\AndroidManifest.xml:28:19-48
-38        <activity android:name="com.example.IndustryProject.ReadFileAssetsActivity" />
-38-->C:\Users\admalexp\Documents\Industry-Project-master\Industry-Project\app\src\main\AndroidManifest.xml:29:9-60
-38-->C:\Users\admalexp\Documents\Industry-Project-master\Industry-Project\app\src\main\AndroidManifest.xml:29:19-57
-39        <activity android:name="com.example.IndustryProject.SearchActivity" />
-39-->C:\Users\admalexp\Documents\Industry-Project-master\Industry-Project\app\src\main\AndroidManifest.xml:30:9-52
-39-->C:\Users\admalexp\Documents\Industry-Project-master\Industry-Project\app\src\main\AndroidManifest.xml:30:19-49
-40
-41        <meta-data
-41-->C:\Users\admalexp\Documents\Industry-Project-master\Industry-Project\app\src\main\AndroidManifest.xml:32:9-34:35
-42            android:name="android.max_aspect"
-42-->C:\Users\admalexp\Documents\Industry-Project-master\Industry-Project\app\src\main\AndroidManifest.xml:33:13-46
-43            android:value="2.1" />
-43-->C:\Users\admalexp\Documents\Industry-Project-master\Industry-Project\app\src\main\AndroidManifest.xml:34:13-32
-44
-45        <service
-45-->[androidx.room:room-runtime:2.1.0] C:\Users\alexp.HORODC\.gradle\caches\transforms-2\files-2.1\3b878328b887e71e2102624e91f68331\room-runtime-2.1.0\AndroidManifest.xml:25:9-27:40
-46            android:name="androidx.room.MultiInstanceInvalidationService"
-46-->[androidx.room:room-runtime:2.1.0] C:\Users\alexp.HORODC\.gradle\caches\transforms-2\files-2.1\3b878328b887e71e2102624e91f68331\room-runtime-2.1.0\AndroidManifest.xml:26:13-74
-47            android:exported="false" />
-47-->[androidx.room:room-runtime:2.1.0] C:\Users\alexp.HORODC\.gradle\caches\transforms-2\files-2.1\3b878328b887e71e2102624e91f68331\room-runtime-2.1.0\AndroidManifest.xml:27:13-37
-48
-49        <provider
-49-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\alexp.HORODC\.gradle\caches\transforms-2\files-2.1\bba9e662e9f4bf0da774229f97b853fc\lifecycle-process-2.0.0\AndroidManifest.xml:23:9-27:43
-50            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
-50-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\alexp.HORODC\.gradle\caches\transforms-2\files-2.1\bba9e662e9f4bf0da774229f97b853fc\lifecycle-process-2.0.0\AndroidManifest.xml:24:13-79
-51            android:authorities="com.example.assignment01.lifecycle-process"
-51-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\alexp.HORODC\.gradle\caches\transforms-2\files-2.1\bba9e662e9f4bf0da774229f97b853fc\lifecycle-process-2.0.0\AndroidManifest.xml:25:13-69
-52            android:exported="false"
-52-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\alexp.HORODC\.gradle\caches\transforms-2\files-2.1\bba9e662e9f4bf0da774229f97b853fc\lifecycle-process-2.0.0\AndroidManifest.xml:26:13-37
-53            android:multiprocess="true" />
-53-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\alexp.HORODC\.gradle\caches\transforms-2\files-2.1\bba9e662e9f4bf0da774229f97b853fc\lifecycle-process-2.0.0\AndroidManifest.xml:27:13-40
-54    </application>
-55
-56</manifest>
+11-->C:\Users\OEM\Desktop\IP\Industry-Project\app\src\main\AndroidManifest.xml:5:5-37:19
+12        android:name="com.example.IndustryProject.db.MyApplication"
+12-->C:\Users\OEM\Desktop\IP\Industry-Project\app\src\main\AndroidManifest.xml:6:9-68
+13        android:allowBackup="false"
+13-->C:\Users\OEM\Desktop\IP\Industry-Project\app\src\main\AndroidManifest.xml:7:9-36
+14        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+14-->[androidx.core:core:1.1.0] C:\Users\OEM\.gradle\caches\transforms-2\files-2.1\c527b78844be871c44103f6f45a963fb\core-1.1.0\AndroidManifest.xml:24:18-86
+15        android:debuggable="true"
+16        android:icon="@drawable/ic_pizza"
+16-->C:\Users\OEM\Desktop\IP\Industry-Project\app\src\main\AndroidManifest.xml:8:9-42
+17        android:label="@string/app_name"
+17-->C:\Users\OEM\Desktop\IP\Industry-Project\app\src\main\AndroidManifest.xml:9:9-41
+18        android:roundIcon="@mipmap/ic_launcher_round"
+18-->C:\Users\OEM\Desktop\IP\Industry-Project\app\src\main\AndroidManifest.xml:10:9-54
+19        android:supportsRtl="true"
+19-->C:\Users\OEM\Desktop\IP\Industry-Project\app\src\main\AndroidManifest.xml:11:9-35
+20        android:testOnly="true"
+21        android:theme="@style/AppTheme" >
+21-->C:\Users\OEM\Desktop\IP\Industry-Project\app\src\main\AndroidManifest.xml:12:9-40
+22        <activity android:name="com.example.IndustryProject.FoodSummaryActivity" />
+22-->C:\Users\OEM\Desktop\IP\Industry-Project\app\src\main\AndroidManifest.xml:13:9-57
+22-->C:\Users\OEM\Desktop\IP\Industry-Project\app\src\main\AndroidManifest.xml:13:19-54
+23        <activity android:name="com.example.IndustryProject.UserInformationActivity" />
+23-->C:\Users\OEM\Desktop\IP\Industry-Project\app\src\main\AndroidManifest.xml:14:9-61
+23-->C:\Users\OEM\Desktop\IP\Industry-Project\app\src\main\AndroidManifest.xml:14:19-58
+24        <activity android:name="com.example.IndustryProject.AddUserAcitivity" />
+24-->C:\Users\OEM\Desktop\IP\Industry-Project\app\src\main\AndroidManifest.xml:15:9-54
+24-->C:\Users\OEM\Desktop\IP\Industry-Project\app\src\main\AndroidManifest.xml:15:19-51
+25        <activity android:name="com.example.IndustryProject.Food_RecyclerFrag_Main" />
+25-->C:\Users\OEM\Desktop\IP\Industry-Project\app\src\main\AndroidManifest.xml:16:9-60
+25-->C:\Users\OEM\Desktop\IP\Industry-Project\app\src\main\AndroidManifest.xml:16:19-57
+26        <activity
+26-->C:\Users\OEM\Desktop\IP\Industry-Project\app\src\main\AndroidManifest.xml:17:9-25:20
+27            android:name="com.example.IndustryProject.SplashActivity"
+27-->C:\Users\OEM\Desktop\IP\Industry-Project\app\src\main\AndroidManifest.xml:18:13-43
+28            android:theme="@style/SplashTheme" >
+28-->C:\Users\OEM\Desktop\IP\Industry-Project\app\src\main\AndroidManifest.xml:19:13-47
+29            <intent-filter>
+29-->C:\Users\OEM\Desktop\IP\Industry-Project\app\src\main\AndroidManifest.xml:20:13-24:29
+30                <action android:name="android.intent.action.MAIN" />
+30-->C:\Users\OEM\Desktop\IP\Industry-Project\app\src\main\AndroidManifest.xml:21:17-69
+30-->C:\Users\OEM\Desktop\IP\Industry-Project\app\src\main\AndroidManifest.xml:21:25-66
+31
+32                <category android:name="android.intent.category.LAUNCHER" />
+32-->C:\Users\OEM\Desktop\IP\Industry-Project\app\src\main\AndroidManifest.xml:23:17-77
+32-->C:\Users\OEM\Desktop\IP\Industry-Project\app\src\main\AndroidManifest.xml:23:27-74
+33            </intent-filter>
+34        </activity>
+35        <activity android:name="com.example.IndustryProject.MainActivity" />
+35-->C:\Users\OEM\Desktop\IP\Industry-Project\app\src\main\AndroidManifest.xml:26:9-50
+35-->C:\Users\OEM\Desktop\IP\Industry-Project\app\src\main\AndroidManifest.xml:26:19-47
+36        <activity android:name="com.example.IndustryProject.ProfileActivity" />
+36-->C:\Users\OEM\Desktop\IP\Industry-Project\app\src\main\AndroidManifest.xml:27:9-53
+36-->C:\Users\OEM\Desktop\IP\Industry-Project\app\src\main\AndroidManifest.xml:27:19-50
+37        <activity android:name="com.example.IndustryProject.UpdateBodyDetailsActivity" />
+37-->C:\Users\OEM\Desktop\IP\Industry-Project\app\src\main\AndroidManifest.xml:28:9-63
+37-->C:\Users\OEM\Desktop\IP\Industry-Project\app\src\main\AndroidManifest.xml:28:19-60
+38        <activity android:name="com.example.IndustryProject.InsertBodyDetailsActivity" />
+38-->C:\Users\OEM\Desktop\IP\Industry-Project\app\src\main\AndroidManifest.xml:29:9-63
+38-->C:\Users\OEM\Desktop\IP\Industry-Project\app\src\main\AndroidManifest.xml:29:19-60
+39        <activity android:name="com.example.IndustryProject.GoalsActivity" />
+39-->C:\Users\OEM\Desktop\IP\Industry-Project\app\src\main\AndroidManifest.xml:30:9-51
+39-->C:\Users\OEM\Desktop\IP\Industry-Project\app\src\main\AndroidManifest.xml:30:19-48
+40        <activity android:name="com.example.IndustryProject.ReadFileAssetsActivity" />
+40-->C:\Users\OEM\Desktop\IP\Industry-Project\app\src\main\AndroidManifest.xml:31:9-60
+40-->C:\Users\OEM\Desktop\IP\Industry-Project\app\src\main\AndroidManifest.xml:31:19-57
+41        <activity android:name="com.example.IndustryProject.SearchActivity" />
+41-->C:\Users\OEM\Desktop\IP\Industry-Project\app\src\main\AndroidManifest.xml:32:9-52
+41-->C:\Users\OEM\Desktop\IP\Industry-Project\app\src\main\AndroidManifest.xml:32:19-49
+42
+43        <meta-data
+43-->C:\Users\OEM\Desktop\IP\Industry-Project\app\src\main\AndroidManifest.xml:34:9-36:35
+44            android:name="android.max_aspect"
+44-->C:\Users\OEM\Desktop\IP\Industry-Project\app\src\main\AndroidManifest.xml:35:13-46
+45            android:value="2.1" />
+45-->C:\Users\OEM\Desktop\IP\Industry-Project\app\src\main\AndroidManifest.xml:36:13-32
+46
+47        <service
+47-->[androidx.room:room-runtime:2.1.0] C:\Users\OEM\.gradle\caches\transforms-2\files-2.1\3b878328b887e71e2102624e91f68331\room-runtime-2.1.0\AndroidManifest.xml:25:9-27:40
+48            android:name="androidx.room.MultiInstanceInvalidationService"
+48-->[androidx.room:room-runtime:2.1.0] C:\Users\OEM\.gradle\caches\transforms-2\files-2.1\3b878328b887e71e2102624e91f68331\room-runtime-2.1.0\AndroidManifest.xml:26:13-74
+49            android:exported="false" />
+49-->[androidx.room:room-runtime:2.1.0] C:\Users\OEM\.gradle\caches\transforms-2\files-2.1\3b878328b887e71e2102624e91f68331\room-runtime-2.1.0\AndroidManifest.xml:27:13-37
+50
+51        <provider
+51-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\OEM\.gradle\caches\transforms-2\files-2.1\bba9e662e9f4bf0da774229f97b853fc\lifecycle-process-2.0.0\AndroidManifest.xml:23:9-27:43
+52            android:name="androidx.lifecycle.ProcessLifecycleOwnerInitializer"
+52-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\OEM\.gradle\caches\transforms-2\files-2.1\bba9e662e9f4bf0da774229f97b853fc\lifecycle-process-2.0.0\AndroidManifest.xml:24:13-79
+53            android:authorities="com.example.assignment01.lifecycle-process"
+53-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\OEM\.gradle\caches\transforms-2\files-2.1\bba9e662e9f4bf0da774229f97b853fc\lifecycle-process-2.0.0\AndroidManifest.xml:25:13-69
+54            android:exported="false"
+54-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\OEM\.gradle\caches\transforms-2\files-2.1\bba9e662e9f4bf0da774229f97b853fc\lifecycle-process-2.0.0\AndroidManifest.xml:26:13-37
+55            android:multiprocess="true" />
+55-->[androidx.lifecycle:lifecycle-process:2.0.0] C:\Users\OEM\.gradle\caches\transforms-2\files-2.1\bba9e662e9f4bf0da774229f97b853fc\lifecycle-process-2.0.0\AndroidManifest.xml:27:13-40
+56    </application>
+57
+58</manifest>

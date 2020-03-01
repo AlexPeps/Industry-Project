@@ -1654,6 +1654,7 @@ drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_pizza
+drawable ic_restore_48px
 drawable ic_search_24px
 drawable ic_search_black_24dp
 drawable icon_dumbbell
@@ -2010,6 +2011,7 @@ id radioGroup1
 id rcfrag_main
 id rcmain
 id recycler_toolbar
+id resetGoals
 id right
 id right_icon
 id right_side

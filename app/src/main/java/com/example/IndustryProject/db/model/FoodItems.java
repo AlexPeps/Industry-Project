@@ -23,15 +23,22 @@ public class FoodItems implements Serializable {
     @ColumnInfo(name = "Calories")
     public String calories;
 
+    @ColumnInfo(name = "Total Calories")
+    public Float totalCalories;
+
     public void setFoodName(String foodName){this.foodName = foodName;}
 
     public void setFoodDescription(String foodDescription) {this.foodDescription = foodDescription;}
 
     public void setCalories(String calories) {this.calories = calories;}
 
+    public void setTotalCalories(Float totalCalories) {this.totalCalories = totalCalories;}
+
     public String getFoodName() {return foodName;}
 
     public String getFoodDescription() {return foodDescription;}
 
     public String getCalories() {return  calories;}
+
+    public Float getTotalCalories() {return  totalCalories;}
 }

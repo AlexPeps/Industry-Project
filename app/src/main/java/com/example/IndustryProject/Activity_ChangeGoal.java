@@ -24,6 +24,7 @@ public class Activity_ChangeGoal extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     User user;
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -109,4 +110,6 @@ public class Activity_ChangeGoal extends AppCompatActivity {
     */
 
     }
+
+
 }
