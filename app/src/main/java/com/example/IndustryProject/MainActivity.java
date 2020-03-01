@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity  {
 
 
 
-    private class FoodItemDB extends AsyncTask<Void, Void, Void>{
+    public static class FoodItemDB extends AsyncTask<Void, Void, Void>{
         List<FoodItems> foodItems = null;
 
         @Override

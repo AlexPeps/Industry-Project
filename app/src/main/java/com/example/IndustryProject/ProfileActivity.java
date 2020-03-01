@@ -26,7 +26,9 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityOptionsCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.example.IndustryProject.db.dao.DatabaseDao;
 import com.example.IndustryProject.db.model.BodyDetails;
+import com.example.IndustryProject.db.model.FoodItems;
 import com.example.IndustryProject.db.model.Goals;
 import com.example.IndustryProject.db.model.User;
 import com.google.android.material.navigation.NavigationView;
@@ -44,24 +46,30 @@ import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 
+import java.util.List;
+
 
 public class ProfileActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, SensorEventListener {
 
     public static float evsteps;
     public static int cont = 0;
     public static float mSeriesMax = 0f;
+    public static DatabaseDao userDao;
+    public static float calRef = 0f;
     boolean activityRunning;
     Goals goals;
     TextView firstName, lastName, mobile, userName, name, age, bmr, lifestyle, weight, height;
     ImageView image;
     User user;
     BodyDetails bodyDetails;
+    FoodItems foodItems;
     private DecoView mDecoView;
     public static final String USER_OBJECT = "USER_OBJECT";
     private TextView textView;
     private int mBackIndex;
     private int mSeries1Index;
     private SensorManager sensorManager;
+
 
 
 
@@ -80,9 +88,12 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
         setContentView(R.layout.activity_profile_activity);
 
 
+
         user = (User) getIntent().getSerializableExtra(MainActivity.USER_OBJECT);
+        user = (User) getIntent().getSerializableExtra(SearchActivity.USER_OBJECT);
         goals = (Goals) getIntent().getSerializableExtra(MainActivity.GOALS_OBJECT);
         bodyDetails = (BodyDetails) getIntent().getSerializableExtra(UpdateBodyDetailsActivity.BODY_OBJECT);
+        foodItems = (FoodItems) getIntent().getSerializableExtra(SearchActivity.FOOD_OBJECT);
 
         deleteResult = -1;
 
@@ -265,6 +276,8 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
 
 
     }
+
+
 
     // Step Counter
 
@@ -543,5 +556,9 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
                         "User Record has not been deleted",
                         Toast.LENGTH_LONG).show();
         }
+
     }
+
+
+
 }

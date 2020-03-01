@@ -32,7 +32,7 @@ public class FoodSummaryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_summary);
 
-        food_calories = MainActivity.calRef;
+        food_calories = ProfileActivity.calRef;
 
 
         //food_calories = Food_MyRecyclerViewAdapter.caloriecount;

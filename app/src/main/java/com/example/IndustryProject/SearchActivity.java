@@ -2,6 +2,7 @@ package com.example.IndustryProject;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.text.Editable;
@@ -13,7 +14,9 @@ import android.widget.ListView;
 
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.IndustryProject.db.dao.DatabaseDao;
 import com.example.IndustryProject.db.model.FoodItems;
+import com.example.IndustryProject.db.model.User;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -28,10 +31,14 @@ public class SearchActivity extends Activity {
     ArrayList<String> arrayList ;
     private ArrayList foodList = new ArrayList();
     public static final String FOOD_OBJECT= "FOOD_OBJECT";
+    public static final String USER_OBJECT= "USER_OBJECT";
     FoodItems foodItems;
+    User user;
+    public static float calRef = 0f;
 
     List<String[]> mFoodList;
 
+    public static DatabaseDao databaseDao;
 
 
 
@@ -47,6 +54,8 @@ public class SearchActivity extends Activity {
         //csv read using the below example with a few changes
 
         //https://javapapers.com/android/android-read-csv-file/
+
+        user = (User) getIntent().getSerializableExtra(MainActivity.USER_OBJECT);
 
 
 
@@ -123,12 +132,31 @@ public class SearchActivity extends Activity {
 
                 Intent intent = new Intent(getApplicationContext(), ProfileActivity.class );
                 intent.putExtra(FOOD_OBJECT, foodItems);
+                intent.putExtra(USER_OBJECT, user);
                 startActivity(intent);
+                getUserInfo();
 
             }
         });
 
 
+
+    }
+
+    private void getUserInfo(){
+
+        new MainActivity.FoodItemDB().execute();
+
+
+//        if (foodItems.getCalories().isEmpty()) {
+//            calRef = 0;
+//
+//        }
+//
+//        else
+//            {
+//                calRef = Float.parseFloat(foodItems.getCalories().toString());
+//            }
 
     }
 
@@ -152,6 +180,31 @@ public class SearchActivity extends Activity {
 
         //calling a method of the adapter class and passing the filtered list
         ListViewAdapter.filterList(filteredList);
+    }
+
+    public static class FoodItemDB extends AsyncTask<Void, Void, Void> {
+        List<FoodItems> foodItems = null;
+
+        @Override
+        protected Void doInBackground(Void... voids) {
+            foodItems = databaseDao.getAllFoodItems();
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+
+            for (FoodItems food : foodItems) {
+                //set calories to be displayed in overview page
+                calRef += Float.parseFloat(food.getCalories());
+            }
+
+            // calRef = Float.valueOf(food.calories);
+            //Log.d("FoodItemDB", "SUM" +sum);
+
+
+        }
     }
 
 
