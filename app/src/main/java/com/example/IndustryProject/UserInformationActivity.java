@@ -16,6 +16,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.IndustryProject.db.model.User;
+import com.example.IndustryProject.utils.Constant;
 
 public class UserInformationActivity extends AppCompatActivity {
 
@@ -34,7 +35,7 @@ public class UserInformationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_information);
 
-        user = (User) getIntent().getSerializableExtra(MainActivity.USER_OBJECT);
+        user = (User) getIntent().getSerializableExtra(Constant.USER_OBJECT);
 
         updateResult = -1;
         deleteResult = -1;

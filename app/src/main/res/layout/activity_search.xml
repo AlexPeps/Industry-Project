@@ -6,18 +6,21 @@
     android:layout_height="match_parent"
     tools:context="com.example.IndustryProject.SearchActivity">
 
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/my_toolbar"
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
-            app:navigationIcon="?attr/homeAsUpIndicator"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark"/>
+            android:elevation="5dp"
+            android:minHeight="?attr/actionBarSize"
+            app:navigationIcon="?attr/homeAsUpIndicator"/>
 
         <EditText
             android:layout_width="fill_parent"

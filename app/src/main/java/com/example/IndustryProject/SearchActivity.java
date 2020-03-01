@@ -11,12 +11,23 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
+import androidx.appcompat.widget.Toolbar;
+
+import com.example.IndustryProject.db.dao.DatabaseDao;
+import com.example.IndustryProject.db.model.BodyDetails;
+import com.example.IndustryProject.db.model.FoodItems;
 
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.IndustryProject.db.dao.DatabaseDao;
 import com.example.IndustryProject.db.model.FoodItems;
+<<<<<<< HEAD
 import com.example.IndustryProject.db.model.User;
+=======
+import com.example.IndustryProject.db.model.Goals;
+import com.example.IndustryProject.db.model.User;
+import com.example.IndustryProject.utils.Constant;
+>>>>>>> 3a9383a5efb0827f3476168cf027c462fd6f8c41
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -30,15 +41,24 @@ public class SearchActivity extends Activity {
     EditText editTextSearch;
     ArrayList<String> arrayList ;
     private ArrayList foodList = new ArrayList();
+<<<<<<< HEAD
     public static final String FOOD_OBJECT= "FOOD_OBJECT";
     public static final String USER_OBJECT= "USER_OBJECT";
     FoodItems foodItems;
     User user;
     public static float calRef = 0f;
+=======
+    FoodItems foodItems;
+    User user;
+    public static float calRef = 0f;
+    public static DatabaseDao userDao;
+
+>>>>>>> 3a9383a5efb0827f3476168cf027c462fd6f8c41
 
     List<String[]> mFoodList;
 
     public static DatabaseDao databaseDao;
+
 
 
 
@@ -55,8 +75,17 @@ public class SearchActivity extends Activity {
 
         //https://javapapers.com/android/android-read-csv-file/
 
+<<<<<<< HEAD
         user = (User) getIntent().getSerializableExtra(MainActivity.USER_OBJECT);
 
+=======
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+
+        user = (User) getIntent().getSerializableExtra(Constant.USER_OBJECT);
+        BodyDetails body = (BodyDetails) getIntent().getSerializableExtra(Constant.BODY_OBJECT);
+        foodItems = (FoodItems) getIntent().getSerializableExtra(Constant.FOOD_OBJECT);
+>>>>>>> 3a9383a5efb0827f3476168cf027c462fd6f8c41
 
 
 
@@ -79,7 +108,7 @@ public class SearchActivity extends Activity {
 
         //uses CSVFile class in another file
 
-        InputStream inputStream = getResources().openRawResource(R.raw.data);
+        final InputStream inputStream = getResources().openRawResource(R.raw.data);
         CSVFile csvFile = new CSVFile(inputStream);
 
         //had to change list to string otherwise wouldn't work
@@ -125,14 +154,20 @@ public class SearchActivity extends Activity {
         //set toolbar
         //back button to send data with intent
 
-        Toolbar toolbar = findViewById(R.id.my_toolbar);
+      //  Toolbar toolbar = findViewById(R.id.my_toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+
                 Intent intent = new Intent(getApplicationContext(), ProfileActivity.class );
+<<<<<<< HEAD
                 intent.putExtra(FOOD_OBJECT, foodItems);
                 intent.putExtra(USER_OBJECT, user);
+=======
+                intent.putExtra(Constant.FOOD_OBJECT, foodItems);
+                intent.putExtra(Constant.USER_OBJECT, user);
+>>>>>>> 3a9383a5efb0827f3476168cf027c462fd6f8c41
                 startActivity(intent);
                 getUserInfo();
 
@@ -143,6 +178,7 @@ public class SearchActivity extends Activity {
 
     }
 
+<<<<<<< HEAD
     private void getUserInfo(){
 
         new MainActivity.FoodItemDB().execute();
@@ -161,6 +197,11 @@ public class SearchActivity extends Activity {
     }
 
             //filter from https://www.simplifiedcoding.net/search-functionality-recyclerview/
+=======
+
+
+    //filter from https://www.simplifiedcoding.net/search-functionality-recyclerview/
+>>>>>>> 3a9383a5efb0827f3476168cf027c462fd6f8c41
 
     private void filter(String text) {
         //new array list that will hold the filtered data
@@ -206,6 +247,8 @@ public class SearchActivity extends Activity {
 
         }
     }
+
+
 
 
 

@@ -1654,6 +1654,7 @@ drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_pizza
+drawable ic_restore_48px
 drawable ic_search_24px
 drawable ic_search_black_24dp
 drawable icon_dumbbell
@@ -1813,7 +1814,6 @@ id button1
 id button2
 id button3
 id buttonAddUser
-id buttonListReturn
 id buttonLogin
 id buttonPanel
 id button_display
@@ -1908,9 +1908,7 @@ id ifRoom
 id image
 id imageActivity1
 id imageView
-id imageViewDelete
 id imageViewLogo
-id imageViewProfile
 id imgAssets
 id info
 id invisible
@@ -2013,6 +2011,7 @@ id radioGroup1
 id rcfrag_main
 id rcmain
 id recycler_toolbar
+id resetGoals
 id right
 id right_icon
 id right_side
@@ -2109,8 +2108,6 @@ id textView4
 id textView5
 id textView6
 id textView7
-id textViewDisplayName
-id textViewEmail
 id textWatcher
 id text_input_password_toggle
 id textinput_counter
@@ -2145,7 +2142,6 @@ id user_item_card
 id user_item_card_list_ID
 id user_item_card_list_caloriesActual
 id user_item_card_list_name
-id user_list_recycler_view
 id view_offset_helper
 id visible
 id vsfb
@@ -2220,7 +2216,6 @@ layout activity_search
 layout activity_splash
 layout activity_update_body_details
 layout activity_user_information
-layout activity_user_list
 layout app_bar_profile_activity_new
 layout bt_card_form_fields
 layout bt_expiration_date_item
@@ -2244,7 +2239,6 @@ layout design_navigation_menu_item
 layout design_text_input_password_icon
 layout header
 layout item_layout
-layout item_user
 layout layout_user_list
 layout main
 layout material_drawer

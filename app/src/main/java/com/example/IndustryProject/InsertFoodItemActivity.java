@@ -6,6 +6,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.IndustryProject.db.AppDB;
 import com.example.IndustryProject.db.model.FoodItems;
 
 public class InsertFoodItemActivity extends AppCompatActivity {
@@ -23,7 +24,8 @@ public class InsertFoodItemActivity extends AppCompatActivity {
 
         @Override
         protected Void doInBackground(FoodItems... foodItems) {
-            insertionResult = MainActivity.userDao.insertFoodItems(foodItems[0]);
+         //   insertionResult = MainActivity.userDao.insertFoodItems(foodItems[0]);
+            insertionResult = AppDB.instance().getDao().insertFoodItems(foodItems[0]);
             return null;
         }
 

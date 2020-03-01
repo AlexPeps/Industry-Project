@@ -1,10 +1,13 @@
 package com.example.IndustryProject;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -13,18 +16,33 @@ import android.view.animation.BounceInterpolator;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.Toolbar;
 
+import com.example.IndustryProject.db.AppDB;
+import com.example.IndustryProject.db.dao.DatabaseDao;
+import com.example.IndustryProject.db.model.FoodItems;
+import com.example.IndustryProject.db.model.Goals;
+import com.example.IndustryProject.utils.Constant;
 import com.google.android.material.navigation.NavigationView;
 import com.natasa.progressviews.CircleProgressBar;
 import com.natasa.progressviews.utils.OnProgressViewListener;
+
+import java.util.List;
 
 public class FoodSummaryActivity extends AppCompatActivity {
 
 
     public static float stepMax = 0f;
     public static float calorieMax = 0f;
+
+    public static String clearGoal = " ";
     float food_calories;
+    FoodItems foodItems;
+    DatabaseDao databaseDao;
+    int updateResult;
+    Goals goals;
+
 
 
 
@@ -35,9 +53,20 @@ public class FoodSummaryActivity extends AppCompatActivity {
         food_calories = ProfileActivity.calRef;
 
 
-        //food_calories = Food_MyRecyclerViewAdapter.caloriecount;
+
+
+        food_calories =  SearchActivity.calRef;
+        goals = (Goals) getIntent().getSerializableExtra(Constant.GOALS_OBJECT);
+
+
+        updateResult = -1;
+
+      //  getUserInfo();
+
+
+
         Log.d("Calories for Overview", String.valueOf(Food_RecyclerFrag_Main.calRef1));
-        // Setting Steps and Calories
+        // Setting Steps and CaloriesFood_RecyclerFrag_Main
         stepMax = GoalsActivity.mSeries;
         if (stepMax == 0) {
             stepMax = GoalsActivity.mSeries1;
@@ -91,7 +120,7 @@ public class FoodSummaryActivity extends AppCompatActivity {
         }
 
          */
-        food.setProgress((100 * (food_calories)) / calorieMax);
+        food.setProgress((100 * (food_calories /calorieMax)));
         food.setText(food_calories + "/ " + calorieMax);
         food.setWidthProgressBackground(25);
         food.setWidthProgressBarLine(40);
@@ -183,6 +212,63 @@ public class FoodSummaryActivity extends AppCompatActivity {
 
     }
 
+    public void resetGoalsClick(View view) {
+
+        final AlertDialog alertDialog = new AlertDialog.Builder(FoodSummaryActivity.this).create();
+        alertDialog.setTitle("Reset Daily goals?");
+        alertDialog.setIcon(R.drawable.ic_pizza);
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Cancel",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                }
+        );
+
+        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        if (goals.getCalorieGoal().isEmpty()){
+
+                            Toast.makeText(getApplicationContext(),"No goals entered!", Toast.LENGTH_SHORT);
+
+                        } else{
+                            stepMax = 0;
+                            calorieMax = 0;
+                            goals.calorieGoal = clearGoal;
+                            goals.stepGoal = clearGoal;
+                        new UpdateGoals().execute(goals);
+                        dialog.dismiss();
+                    }}
+
+                });
+        alertDialog.show();
+    }
+
+    public class UpdateGoals extends AsyncTask<Goals, Void, Void> {
+
+        @Override
+        protected Void doInBackground(Goals... goals) {
+            updateResult = AppDB.instance().getDao().updateGoals(goals[0]);
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            if (updateResult == -1) {
+                Toast.makeText(getApplicationContext(),
+                        "Update failure.", Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(getApplicationContext(),
+                        "Update Success. User ID: " + updateResult, Toast.LENGTH_LONG).show();
+
+            }
+
+        }
+    }
 
 
 }

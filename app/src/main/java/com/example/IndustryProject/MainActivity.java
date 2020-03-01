@@ -12,29 +12,33 @@ import android.widget.Toast;
 
 import com.example.IndustryProject.db.dao.DatabaseDao;
 import com.example.IndustryProject.db.AppDB;
+import com.example.IndustryProject.db.model.BodyDetails;
 import com.example.IndustryProject.db.model.FoodItems;
 import com.example.IndustryProject.db.model.User;
+import com.example.IndustryProject.utils.Constant;
 
 
 import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class MainActivity extends AppCompatActivity  {
+public class MainActivity extends AppCompatActivity {
 
 
-    public static final String GOALS_OBJECT = "GOALS_OBJECT";
     public static DatabaseDao userDao;
     EditText TextEnterUsername, TextEnterPassword;
-    public static final String USER_OBJECT= "USER_OBJECT";
+
+    DatabaseDao databaseDao;
+    FoodItems foodItems;
+
+    int updateResult, deleteResult;
+
     public static float mSeries1 = 0f;
     public static float mSeries2 = 0f;
     public static float calRef = 0f;
     public static float user_fat = 0f;
     public static float user_carbs = 0f;
     public static float user_protein = 0f;
-    DatabaseDao databaseDao;
-    FoodItems foodItems;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,14 +50,25 @@ public class MainActivity extends AppCompatActivity  {
         TextEnterPassword = findViewById(R.id.TextEnterPassword);
         getUserInfo();
 
+        updateResult = -1;
 
 
-        //List<Student> list = userDao.readAllStudents();
 
-//        Toast.makeText(this, "Students read from DB " + list.size(),
-//                Toast.LENGTH_LONG).show();
+        try {
+            getUserInfo();
+
+        }
+         catch (Exception e){
+
+
+         }
+
+
+
+
 
     }
+
     private void getUserInfo(){
 
         new FoodItemDB().execute();
@@ -95,7 +110,7 @@ public class MainActivity extends AppCompatActivity  {
     private void checkPassword(User user){
         if(TextEnterPassword.getText().toString().equals(user.getPassword())){
             Intent intent = new Intent(this, GoalsActivity.class);
-            intent.putExtra(USER_OBJECT, user);
+            intent.putExtra(Constant.USER_OBJECT, user);
             startActivity(intent);
         } else {
             Toast.makeText(this,
@@ -133,7 +148,13 @@ public class MainActivity extends AppCompatActivity  {
 
 
 
+
     public static class FoodItemDB extends AsyncTask<Void, Void, Void>{
+
+    }
+
+    public class FoodItemDB extends AsyncTask<Void, Void, Void>{
+
         List<FoodItems> foodItems = null;
 
         @Override
@@ -149,6 +170,7 @@ public class MainActivity extends AppCompatActivity  {
             for (FoodItems food : foodItems) {
                 //set calories to be displayed in overview page
                 calRef += Float.parseFloat(food.getCalories());
+
             }
 
                // calRef = Float.valueOf(food.calories);
@@ -157,4 +179,6 @@ public class MainActivity extends AppCompatActivity  {
 
         }
     }
+
+
 }
