@@ -55,6 +55,7 @@ public class FoodSummaryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_summary);
 
+<<<<<<< HEAD
 
 
         food_calories =  SearchActivity.calRef;
@@ -82,6 +83,23 @@ public class FoodSummaryActivity extends AppCompatActivity {
         updateResult = -1;
 
       //  getUserInfo();
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+        food_calories = ProfileActivity.calRef;
+
+
+=======
+        food_calories = MainActivity.calRef;
+>>>>>>> parent of 3a9383a... 1/3
+
+
+=======
+        food_calories = MainActivity.calRef;
+
+
+>>>>>>> parent of 3a9383a... 1/3
+>>>>>>> 0825efebb9ee8aa30bdbd67c21f4c61bbbd5eaeb
 
 
 

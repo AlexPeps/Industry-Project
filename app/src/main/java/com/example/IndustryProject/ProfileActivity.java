@@ -26,8 +26,22 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityOptionsCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+<<<<<<< HEAD
 import com.example.IndustryProject.db.AppDB;
 import com.example.IndustryProject.db.dao.DatabaseDao;
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+import com.example.IndustryProject.db.AppDB;
+>>>>>>> 3a9383a5efb0827f3476168cf027c462fd6f8c41
+import com.example.IndustryProject.db.dao.DatabaseDao;
+=======
+>>>>>>> parent of 3a9383a... 1/3
+=======
+>>>>>>> parent of 3a9383a... 1/3
+>>>>>>> 0825efebb9ee8aa30bdbd67c21f4c61bbbd5eaeb
 import com.example.IndustryProject.db.model.BodyDetails;
 import com.example.IndustryProject.db.model.FoodItems;
 import com.example.IndustryProject.db.model.Goals;
@@ -48,14 +62,24 @@ import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 
+import java.util.List;
 
+
+<<<<<<< HEAD
 public class ProfileActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, SensorEventListener {
 
+<<<<<<< HEAD
 
+=======
+=======
+>>>>>>> parent of 3a9383a... 1/3
+>>>>>>> 0825efebb9ee8aa30bdbd67c21f4c61bbbd5eaeb
     public static float evsteps;
     public static float calRef1 = 0f;
     public static int cont = 0;
     public static float mSeriesMax = 0f;
+    public static DatabaseDao userDao;
+    public static float calRef = 0f;
     boolean activityRunning;
     Goals goals;
     TextView firstName, lastName, mobile, userName, name, age, bmr, lifestyle, weight, height;
@@ -63,12 +87,20 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
     User user;
     FoodItems foodItems;
     BodyDetails bodyDetails;
+    FoodItems foodItems;
     private DecoView mDecoView;
     private TextView textView;
     private int mBackIndex;
     private int mSeries1Index;
     private SensorManager sensorManager;
+<<<<<<< HEAD
     int updateResult;
+=======
+<<<<<<< HEAD
+
+=======
+>>>>>>> parent of 3a9383a... 1/3
+>>>>>>> 0825efebb9ee8aa30bdbd67c21f4c61bbbd5eaeb
 
 
 
@@ -87,12 +119,39 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
         setContentView(R.layout.activity_profile_activity);
 
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+        user = (User) getIntent().getSerializableExtra(MainActivity.USER_OBJECT);
+        user = (User) getIntent().getSerializableExtra(SearchActivity.USER_OBJECT);
+        goals = (Goals) getIntent().getSerializableExtra(MainActivity.GOALS_OBJECT);
+        bodyDetails = (BodyDetails) getIntent().getSerializableExtra(UpdateBodyDetailsActivity.BODY_OBJECT);
+        foodItems = (FoodItems) getIntent().getSerializableExtra(SearchActivity.FOOD_OBJECT);
+=======
+>>>>>>> 0825efebb9ee8aa30bdbd67c21f4c61bbbd5eaeb
         DrawerLayout drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
 
         user = (User) getIntent().getSerializableExtra(Constant.USER_OBJECT);
         goals = (Goals) getIntent().getSerializableExtra(Constant.GOALS_OBJECT);
         bodyDetails = (BodyDetails) getIntent().getSerializableExtra(Constant.BODY_OBJECT);
         foodItems = (FoodItems) getIntent().getSerializableExtra(Constant.FOOD_OBJECT);
+<<<<<<< HEAD
+=======
+>>>>>>> 3a9383a5efb0827f3476168cf027c462fd6f8c41
+=======
+        user = (User) getIntent().getSerializableExtra(MainActivity.USER_OBJECT);
+        goals = (Goals) getIntent().getSerializableExtra(MainActivity.GOALS_OBJECT);
+        bodyDetails = (BodyDetails) getIntent().getSerializableExtra(UpdateBodyDetailsActivity.BODY_OBJECT);
+>>>>>>> parent of 3a9383a... 1/3
+=======
+        user = (User) getIntent().getSerializableExtra(MainActivity.USER_OBJECT);
+        goals = (Goals) getIntent().getSerializableExtra(MainActivity.GOALS_OBJECT);
+        bodyDetails = (BodyDetails) getIntent().getSerializableExtra(UpdateBodyDetailsActivity.BODY_OBJECT);
+>>>>>>> parent of 3a9383a... 1/3
+>>>>>>> 0825efebb9ee8aa30bdbd67c21f4c61bbbd5eaeb
 
         updateResult = -1;
         deleteResult = -1;
@@ -572,5 +631,9 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
                         "User Record has not been deleted",
                         Toast.LENGTH_LONG).show();
         }
+
     }
+
+
+
 }

@@ -68,7 +68,28 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+<<<<<<< HEAD
 
+=======
+    private void getUserInfo(){
+        if (foodItems.getCalories().isEmpty()) {
+            calRef = 0;
+<<<<<<< HEAD
+
+        }
+
+=======
+
+        }
+
+>>>>>>> parent of 3a9383a... 1/3
+        else
+            {
+                calRef = Float.parseFloat(foodItems.getCalories().toString());
+            }
+
+    }
+>>>>>>> 0825efebb9ee8aa30bdbd67c21f4c61bbbd5eaeb
     private void getUserInfo(){
 
         new FoodItemDB().execute();
@@ -148,7 +169,25 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+<<<<<<< HEAD
     public class FoodItemDB extends AsyncTask<Void, Void, Void>{
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+    public static class FoodItemDB extends AsyncTask<Void, Void, Void>{
+
+    }
+
+    public class FoodItemDB extends AsyncTask<Void, Void, Void>{
+
+=======
+    private class FoodItemDB extends AsyncTask<Void, Void, Void>{
+>>>>>>> parent of 3a9383a... 1/3
+=======
+    private class FoodItemDB extends AsyncTask<Void, Void, Void>{
+>>>>>>> parent of 3a9383a... 1/3
+>>>>>>> 0825efebb9ee8aa30bdbd67c21f4c61bbbd5eaeb
         List<FoodItems> foodItems = null;
 
         @Override

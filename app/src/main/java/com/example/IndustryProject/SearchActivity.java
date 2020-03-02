@@ -19,10 +19,27 @@ import com.example.IndustryProject.db.model.FoodItems;
 
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.IndustryProject.db.dao.DatabaseDao;
 import com.example.IndustryProject.db.model.FoodItems;
+<<<<<<< HEAD
 import com.example.IndustryProject.db.model.Goals;
 import com.example.IndustryProject.db.model.User;
 import com.example.IndustryProject.utils.Constant;
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+import com.example.IndustryProject.db.model.User;
+
+import com.example.IndustryProject.db.model.Goals;
+import com.example.IndustryProject.db.model.User;
+import com.example.IndustryProject.utils.Constant;
+=======
+>>>>>>> parent of 3a9383a... 1/3
+
+=======
+>>>>>>> parent of 3a9383a... 1/3
+>>>>>>> 0825efebb9ee8aa30bdbd67c21f4c61bbbd5eaeb
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -36,6 +53,14 @@ public class SearchActivity extends Activity {
     EditText editTextSearch;
     ArrayList<String> arrayList ;
     private ArrayList foodList = new ArrayList();
+
+    public static final String FOOD_OBJECT= "FOOD_OBJECT";
+    public static final String USER_OBJECT= "USER_OBJECT";
+    FoodItems foodItems;
+<<<<<<< HEAD
+    User user;
+    public static float calRef = 0f;
+
     FoodItems foodItems;
     User user;
     public static float calRef = 0f;
@@ -44,8 +69,24 @@ public class SearchActivity extends Activity {
 
     List<String[]> mFoodList;
 
+<<<<<<< HEAD
 
 
+=======
+<<<<<<< HEAD
+    public static DatabaseDao databaseDao;
+
+
+=======
+    public static final String FOOD_OBJECT = "FOOD_OBJECT";
+>>>>>>> parent of 3a9383a... 1/3
+=======
+
+    List<String[]> mFoodList;
+
+    public static final String FOOD_OBJECT = "FOOD_OBJECT";
+>>>>>>> parent of 3a9383a... 1/3
+>>>>>>> 0825efebb9ee8aa30bdbd67c21f4c61bbbd5eaeb
 
 
 
@@ -61,8 +102,28 @@ public class SearchActivity extends Activity {
 
         //https://javapapers.com/android/android-read-csv-file/
 
+
+        user = (User) getIntent().getSerializableExtra(MainActivity.USER_OBJECT);
+
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
+<<<<<<< HEAD
+=======
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // back button pressed
+                Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
+                intent.putExtra(FOOD_OBJECT, foodItems);
+                startActivity(intent);
+            }
+        });
+<<<<<<< HEAD
+
+=======
+>>>>>>> parent of 3a9383a... 1/3
+>>>>>>> 0825efebb9ee8aa30bdbd67c21f4c61bbbd5eaeb
 
         user = (User) getIntent().getSerializableExtra(Constant.USER_OBJECT);
         BodyDetails body = (BodyDetails) getIntent().getSerializableExtra(Constant.BODY_OBJECT);
@@ -142,9 +203,28 @@ public class SearchActivity extends Activity {
 
 
                 Intent intent = new Intent(getApplicationContext(), ProfileActivity.class );
+<<<<<<< HEAD
                 intent.putExtra(Constant.FOOD_OBJECT, foodItems);
                 intent.putExtra(Constant.USER_OBJECT, user);
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+                intent.putExtra(FOOD_OBJECT, foodItems);
+                intent.putExtra(USER_OBJECT, user);
+
+                intent.putExtra(Constant.FOOD_OBJECT, foodItems);
+                intent.putExtra(Constant.USER_OBJECT, user);
+
+=======
+                intent.putExtra(FOOD_OBJECT, foodItems);
+>>>>>>> parent of 3a9383a... 1/3
+=======
+                intent.putExtra(FOOD_OBJECT, foodItems);
+>>>>>>> parent of 3a9383a... 1/3
+>>>>>>> 0825efebb9ee8aa30bdbd67c21f4c61bbbd5eaeb
                 startActivity(intent);
+                getUserInfo();
 
             }
         });
@@ -153,9 +233,44 @@ public class SearchActivity extends Activity {
 
     }
 
+<<<<<<< HEAD
 
 
     //filter from https://www.simplifiedcoding.net/search-functionality-recyclerview/
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+    private void getUserInfo(){
+
+        new MainActivity.FoodItemDB().execute();
+
+
+//        if (foodItems.getCalories().isEmpty()) {
+//            calRef = 0;
+//
+//        }
+//
+//        else
+//            {
+//                calRef = Float.parseFloat(foodItems.getCalories().toString());
+//            }
+
+    }
+
+            //filter from https://www.simplifiedcoding.net/search-functionality-recyclerview/
+>>>>>>> 0825efebb9ee8aa30bdbd67c21f4c61bbbd5eaeb
+
+
+
+    //filter from https://www.simplifiedcoding.net/search-functionality-recyclerview/
+=======
+            //filter from https://www.simplifiedcoding.net/search-functionality-recyclerview/
+>>>>>>> parent of 3a9383a... 1/3
+
+=======
+            //filter from https://www.simplifiedcoding.net/search-functionality-recyclerview/
+>>>>>>> parent of 3a9383a... 1/3
 
     private void filter(String text) {
         //new array list that will hold the filtered data
@@ -177,7 +292,30 @@ public class SearchActivity extends Activity {
         ListViewAdapter.filterList(filteredList);
     }
 
+    public static class FoodItemDB extends AsyncTask<Void, Void, Void> {
+        List<FoodItems> foodItems = null;
 
+        @Override
+        protected Void doInBackground(Void... voids) {
+            foodItems = databaseDao.getAllFoodItems();
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+
+            for (FoodItems food : foodItems) {
+                //set calories to be displayed in overview page
+                calRef += Float.parseFloat(food.getCalories());
+            }
+
+            // calRef = Float.valueOf(food.calories);
+            //Log.d("FoodItemDB", "SUM" +sum);
+
+
+        }
+    }
 
 
 
