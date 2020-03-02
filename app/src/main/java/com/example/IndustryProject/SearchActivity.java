@@ -19,6 +19,7 @@ import androidx.appcompat.widget.Toolbar;
 import com.example.IndustryProject.db.dao.DatabaseDao;
 import com.example.IndustryProject.db.model.FoodItems;
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 import com.example.IndustryProject.db.model.User;
 
@@ -28,6 +29,8 @@ import com.example.IndustryProject.utils.Constant;
 =======
 >>>>>>> parent of 3a9383a... 1/3
 
+=======
+>>>>>>> parent of 3a9383a... 1/3
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -45,6 +48,7 @@ public class SearchActivity extends Activity {
     public static final String FOOD_OBJECT= "FOOD_OBJECT";
     public static final String USER_OBJECT= "USER_OBJECT";
     FoodItems foodItems;
+<<<<<<< HEAD
     User user;
     public static float calRef = 0f;
 
@@ -57,6 +61,12 @@ public class SearchActivity extends Activity {
 
 
 =======
+    public static final String FOOD_OBJECT = "FOOD_OBJECT";
+>>>>>>> parent of 3a9383a... 1/3
+=======
+
+    List<String[]> mFoodList;
+
     public static final String FOOD_OBJECT = "FOOD_OBJECT";
 >>>>>>> parent of 3a9383a... 1/3
 
@@ -89,7 +99,10 @@ public class SearchActivity extends Activity {
                 startActivity(intent);
             }
         });
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 3a9383a... 1/3
 
 
 
@@ -166,6 +179,7 @@ public class SearchActivity extends Activity {
 
                 Intent intent = new Intent(getApplicationContext(), ProfileActivity.class );
 <<<<<<< HEAD
+<<<<<<< HEAD
 
                 intent.putExtra(FOOD_OBJECT, foodItems);
                 intent.putExtra(USER_OBJECT, user);
@@ -173,6 +187,9 @@ public class SearchActivity extends Activity {
                 intent.putExtra(Constant.FOOD_OBJECT, foodItems);
                 intent.putExtra(Constant.USER_OBJECT, user);
 
+=======
+                intent.putExtra(FOOD_OBJECT, foodItems);
+>>>>>>> parent of 3a9383a... 1/3
 =======
                 intent.putExtra(FOOD_OBJECT, foodItems);
 >>>>>>> parent of 3a9383a... 1/3
@@ -186,6 +203,7 @@ public class SearchActivity extends Activity {
 
     }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 
     private void getUserInfo(){
@@ -214,6 +232,9 @@ public class SearchActivity extends Activity {
             //filter from https://www.simplifiedcoding.net/search-functionality-recyclerview/
 >>>>>>> parent of 3a9383a... 1/3
 
+=======
+            //filter from https://www.simplifiedcoding.net/search-functionality-recyclerview/
+>>>>>>> parent of 3a9383a... 1/3
 
     private void filter(String text) {
         //new array list that will hold the filtered data
@@ -259,8 +280,6 @@ public class SearchActivity extends Activity {
 
         }
     }
-
-
 
     }
 

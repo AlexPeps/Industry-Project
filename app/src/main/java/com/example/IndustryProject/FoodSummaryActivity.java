@@ -37,6 +37,7 @@ public class FoodSummaryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_food_summary);
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         food_calories = ProfileActivity.calRef;
 
 
@@ -45,6 +46,11 @@ public class FoodSummaryActivity extends AppCompatActivity {
 >>>>>>> parent of 3a9383a... 1/3
 
 
+=======
+        food_calories = MainActivity.calRef;
+
+
+>>>>>>> parent of 3a9383a... 1/3
 
 
 

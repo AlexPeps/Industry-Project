@@ -28,10 +28,13 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 import com.example.IndustryProject.db.AppDB;
 >>>>>>> 3a9383a5efb0827f3476168cf027c462fd6f8c41
 import com.example.IndustryProject.db.dao.DatabaseDao;
+=======
+>>>>>>> parent of 3a9383a... 1/3
 =======
 >>>>>>> parent of 3a9383a... 1/3
 import com.example.IndustryProject.db.model.BodyDetails;
@@ -55,8 +58,11 @@ import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import java.util.List;
 
 
+<<<<<<< HEAD
 public class ProfileActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, SensorEventListener {
 
+=======
+>>>>>>> parent of 3a9383a... 1/3
     public static float evsteps;
     public static int cont = 0;
     public static float mSeriesMax = 0f;
@@ -75,7 +81,10 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
     private int mBackIndex;
     private int mSeries1Index;
     private SensorManager sensorManager;
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 3a9383a... 1/3
 
 
 
@@ -96,6 +105,7 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
         user = (User) getIntent().getSerializableExtra(MainActivity.USER_OBJECT);
         user = (User) getIntent().getSerializableExtra(SearchActivity.USER_OBJECT);
@@ -110,6 +120,11 @@ public class ProfileActivity extends AppCompatActivity implements NavigationView
         bodyDetails = (BodyDetails) getIntent().getSerializableExtra(Constant.BODY_OBJECT);
         foodItems = (FoodItems) getIntent().getSerializableExtra(Constant.FOOD_OBJECT);
 >>>>>>> 3a9383a5efb0827f3476168cf027c462fd6f8c41
+=======
+        user = (User) getIntent().getSerializableExtra(MainActivity.USER_OBJECT);
+        goals = (Goals) getIntent().getSerializableExtra(MainActivity.GOALS_OBJECT);
+        bodyDetails = (BodyDetails) getIntent().getSerializableExtra(UpdateBodyDetailsActivity.BODY_OBJECT);
+>>>>>>> parent of 3a9383a... 1/3
 =======
         user = (User) getIntent().getSerializableExtra(MainActivity.USER_OBJECT);
         goals = (Goals) getIntent().getSerializableExtra(MainActivity.GOALS_OBJECT);
