@@ -2,6 +2,7 @@ package com.example.IndustryProject;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.text.Editable;
@@ -12,11 +13,16 @@ import android.widget.EditText;
 import android.widget.ListView;
 import androidx.appcompat.widget.Toolbar;
 
+import com.example.IndustryProject.db.dao.DatabaseDao;
+import com.example.IndustryProject.db.model.BodyDetails;
 import com.example.IndustryProject.db.model.FoodItems;
 
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.IndustryProject.db.model.FoodItems;
+import com.example.IndustryProject.db.model.Goals;
+import com.example.IndustryProject.db.model.User;
+import com.example.IndustryProject.utils.Constant;
 
 import java.io.InputStream;
 import java.util.ArrayList;
@@ -31,10 +37,15 @@ public class SearchActivity extends Activity {
     ArrayList<String> arrayList ;
     private ArrayList foodList = new ArrayList();
     FoodItems foodItems;
+    User user;
+    public static float calRef = 0f;
+    public static DatabaseDao userDao;
+
 
     List<String[]> mFoodList;
 
-    public static final String FOOD_OBJECT = "FOOD_OBJECT";
+
+
 
 
 
@@ -52,16 +63,10 @@ public class SearchActivity extends Activity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // back button pressed
-                Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
-                intent.putExtra(FOOD_OBJECT, foodItems);
-                startActivity(intent);
-            }
-        });
 
+        user = (User) getIntent().getSerializableExtra(Constant.USER_OBJECT);
+        BodyDetails body = (BodyDetails) getIntent().getSerializableExtra(Constant.BODY_OBJECT);
+        foodItems = (FoodItems) getIntent().getSerializableExtra(Constant.FOOD_OBJECT);
 
 
 
@@ -84,7 +89,7 @@ public class SearchActivity extends Activity {
 
         //uses CSVFile class in another file
 
-        InputStream inputStream = getResources().openRawResource(R.raw.data);
+        final InputStream inputStream = getResources().openRawResource(R.raw.data);
         CSVFile csvFile = new CSVFile(inputStream);
 
         //had to change list to string otherwise wouldn't work
@@ -130,13 +135,15 @@ public class SearchActivity extends Activity {
         //set toolbar
         //back button to send data with intent
 
-        Toolbar toolbar = findViewById(R.id.my_toolbar);
+      //  Toolbar toolbar = findViewById(R.id.my_toolbar);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+
                 Intent intent = new Intent(getApplicationContext(), ProfileActivity.class );
-                intent.putExtra(FOOD_OBJECT, foodItems);
+                intent.putExtra(Constant.FOOD_OBJECT, foodItems);
+                intent.putExtra(Constant.USER_OBJECT, user);
                 startActivity(intent);
 
             }
@@ -146,7 +153,9 @@ public class SearchActivity extends Activity {
 
     }
 
-            //filter from https://www.simplifiedcoding.net/search-functionality-recyclerview/
+
+
+    //filter from https://www.simplifiedcoding.net/search-functionality-recyclerview/
 
     private void filter(String text) {
         //new array list that will hold the filtered data
@@ -167,6 +176,8 @@ public class SearchActivity extends Activity {
         //calling a method of the adapter class and passing the filtered list
         ListViewAdapter.filterList(filteredList);
     }
+
+
 
 
 

@@ -1654,6 +1654,7 @@ drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
 drawable ic_pizza
+drawable ic_restore_48px
 drawable ic_search_24px
 drawable ic_search_black_24dp
 drawable icon_dumbbell
@@ -1919,6 +1920,7 @@ id left
 id line1
 id line3
 id listFood
+id listFoodBreak
 id listMode
 id list_item
 id masked
@@ -2010,6 +2012,7 @@ id radioGroup1
 id rcfrag_main
 id rcmain
 id recycler_toolbar
+id resetGoals
 id right
 id right_icon
 id right_side
@@ -2203,6 +2206,7 @@ layout abc_tooltip
 layout activity_add_user_acitivity
 layout activity_body_details
 layout activity_change_goal_settings
+layout activity_food_break
 layout activity_food_summary
 layout activity_goals_activity
 layout activity_home

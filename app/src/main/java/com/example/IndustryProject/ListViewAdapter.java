@@ -2,6 +2,7 @@ package com.example.IndustryProject;
 
 
 import android.content.Context;
+import android.os.AsyncTask;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 import androidx.cardview.widget.CardView;
 
 import com.example.IndustryProject.db.model.FoodItems;
+import com.example.IndustryProject.db.model.User;
 
 import java.util.ArrayList;
 
@@ -22,6 +24,8 @@ public class ListViewAdapter extends ArrayAdapter {
 
     //private ArrayList<String[]> foodList;
     private ArrayList foodList = new ArrayList();
+    long insertionResult;
+
 
     static class FoodViewHolder {
         TextView ID;
@@ -31,6 +35,7 @@ public class ListViewAdapter extends ArrayAdapter {
         CardView cardView;
         Button button;
         private ArrayList<String> arraylist;
+
     }
 
     //constructor
@@ -104,5 +109,6 @@ public class ListViewAdapter extends ArrayAdapter {
         this.foodList = filterdNames;
         notifyDataSetChanged();
     }
+
 
 }

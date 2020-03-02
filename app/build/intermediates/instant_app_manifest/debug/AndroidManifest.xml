@@ -10,6 +10,7 @@
         android:targetSdkVersion="29" />
 
     <application
+        android:name="com.example.IndustryProject.db.MyApplication"
         android:allowBackup="false"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
@@ -19,6 +20,7 @@
         android:supportsRtl="true"
         android:testOnly="true"
         android:theme="@style/AppTheme" >
+        <activity android:name="com.example.IndustryProject.FoodBreakdownActivity" />
         <activity android:name="com.example.IndustryProject.FoodSummaryActivity" />
         <activity android:name="com.example.IndustryProject.UserInformationActivity" />
         <activity android:name="com.example.IndustryProject.AddUserAcitivity" />
@@ -35,6 +37,7 @@
         <activity android:name="com.example.IndustryProject.MainActivity" />
         <activity android:name="com.example.IndustryProject.ProfileActivity" />
         <activity android:name="com.example.IndustryProject.UpdateBodyDetailsActivity" />
+        <activity android:name="com.example.IndustryProject.InsertBodyDetailsActivity" />
         <activity android:name="com.example.IndustryProject.GoalsActivity" />
         <activity android:name="com.example.IndustryProject.ReadFileAssetsActivity" />
         <activity android:name="com.example.IndustryProject.SearchActivity" />

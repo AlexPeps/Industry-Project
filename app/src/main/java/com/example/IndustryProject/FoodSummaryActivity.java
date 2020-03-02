@@ -1,10 +1,15 @@
 package com.example.IndustryProject;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
+import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -13,22 +18,36 @@ import android.view.animation.BounceInterpolator;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toolbar;
-
+import android.widget.Toast;
+import com.example.IndustryProject.db.AppDB;
 import com.example.IndustryProject.db.dao.DatabaseDao;
+import com.example.IndustryProject.db.model.BodyDetails;
 import com.example.IndustryProject.db.model.FoodItems;
+import com.example.IndustryProject.db.model.Goals;
+import com.example.IndustryProject.db.model.User;
+import com.example.IndustryProject.utils.Constant;
 import com.google.android.material.navigation.NavigationView;
 import com.natasa.progressviews.CircleProgressBar;
 import com.natasa.progressviews.utils.OnProgressViewListener;
+
+import java.util.List;
 
 public class FoodSummaryActivity extends AppCompatActivity {
 
 
     public static float stepMax = 0f;
     public static float calorieMax = 0f;
+
+    public static String clearGoal = " ";
     float food_calories;
     FoodItems foodItems;
+    BodyDetails bodyDetails;
     DatabaseDao databaseDao;
+    int updateResult;
+    Goals goals;
+    User user;
+    Toolbar toolbar;
+
 
 
 
@@ -36,9 +55,33 @@ public class FoodSummaryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_summary);
 
-        food_calories = MainActivity.calRef;
 
 
+        food_calories =  SearchActivity.calRef;
+
+
+        goals = (Goals) getIntent().getSerializableExtra(Constant.GOALS_OBJECT);
+        user = (User) getIntent().getSerializableExtra(Constant.USER_OBJECT);
+        bodyDetails = (BodyDetails) getIntent().getSerializableExtra(Constant.BODY_OBJECT);
+        toolbar = findViewById(R.id.toolbar);
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                Intent intent = new Intent(getApplicationContext(), ProfileActivity.class );
+                intent.putExtra(Constant.FOOD_OBJECT, foodItems);
+                intent.putExtra(Constant.USER_OBJECT, user);
+                startActivity(intent);
+
+            }
+        });
+
+
+        updateResult = -1;
+
+      //  getUserInfo();
 
 
 
@@ -97,7 +140,7 @@ public class FoodSummaryActivity extends AppCompatActivity {
         }
 
          */
-        food.setProgress((100 * (food_calories)) / calorieMax);
+        food.setProgress((100 * (food_calories /calorieMax)));
         food.setText(food_calories + "/ " + calorieMax);
         food.setWidthProgressBackground(25);
         food.setWidthProgressBarLine(40);
@@ -175,13 +218,16 @@ public class FoodSummaryActivity extends AppCompatActivity {
 
 
 
-
         // Add Calories
         ImageView addcal = (ImageView) findViewById(R.id.addcalories);
         addcal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent1 = new Intent(FoodSummaryActivity.this, Food_RecyclerFrag_Main.class);
+                Intent intent1 = new Intent(getApplicationContext(), SearchActivity.class);
+                intent1.putExtra(Constant.FOOD_OBJECT, foodItems);
+                intent1.putExtra(Constant.BODY_OBJECT, bodyDetails);
+                intent1.putExtra(Constant.GOALS_OBJECT, goals);
+                intent1.putExtra(Constant.USER_OBJECT, user);
                 startActivity(intent1);
             }
         });
@@ -189,6 +235,79 @@ public class FoodSummaryActivity extends AppCompatActivity {
 
     }
 
+    public void resetGoalsClick(View view) {
+
+        final AlertDialog alertDialog = new AlertDialog.Builder(FoodSummaryActivity.this).create();
+        alertDialog.setTitle("Reset Daily goals?");
+        alertDialog.setIcon(R.drawable.ic_pizza);
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "Cancel",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.dismiss();
+                    }
+                }
+        );
+
+        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        if (goals.getCalorieGoal().isEmpty()){
+
+                            Toast.makeText(getApplicationContext(),"No goals entered!", Toast.LENGTH_SHORT);
+
+                        } else{
+                            stepMax = 0;
+                            calorieMax = 0;
+                            goals.calorieGoal = clearGoal;
+                            goals.stepGoal = clearGoal;
+                        new UpdateGoals().execute(goals);
+                        dialog.dismiss();
+                    }}
+
+                });
+        alertDialog.show();
+    }
+
+    public void foodEditClick(View view) {
+
+        Intent foodIntent = new Intent(getApplicationContext(),SearchActivity.class);
+        foodIntent.putExtra(Constant.FOOD_OBJECT, foodItems);
+        foodIntent.putExtra(Constant.BODY_OBJECT, bodyDetails);
+        foodIntent.putExtra(Constant.USER_OBJECT, user);
+    }
+
+    public void foodBreakDownClick(View view) {
+
+        Intent intent2 = new Intent(FoodSummaryActivity.this, FoodBreakdownActivity.class);
+        intent2.putExtra(Constant.FOOD_OBJECT, foodItems);
+        startActivity(intent2);
+
+    }
+
+    public class UpdateGoals extends AsyncTask<Goals, Void, Void> {
+
+        @Override
+        protected Void doInBackground(Goals... goals) {
+            updateResult = AppDB.instance().getDao().updateGoals(goals[0]);
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            if (updateResult == -1) {
+                Toast.makeText(getApplicationContext(),
+                        "Update failure.", Toast.LENGTH_LONG).show();
+            } else {
+                Toast.makeText(getApplicationContext(),
+                        "Update Success. User ID: " + updateResult, Toast.LENGTH_LONG).show();
+
+            }
+
+        }
+    }
 
 
 }

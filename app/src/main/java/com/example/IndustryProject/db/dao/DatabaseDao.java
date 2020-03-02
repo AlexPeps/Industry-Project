@@ -44,11 +44,17 @@ public interface DatabaseDao {
     @Update
     int updateUsers(User user);
 
+
+    @Update
+    int updateFoodItems(FoodItems foodItems);
+
     @Update
     int UpdateBody(BodyDetails bodyDetail);
+
 
     @Delete
     int deleteUsers(User user);
 
-
+    @Update
+    int updateGoals(Goals goal);
 }

@@ -34,7 +34,11 @@ public final class DatabaseDao_Impl implements DatabaseDao {
 
   private final EntityDeletionOrUpdateAdapter __updateAdapterOfUser;
 
+  private final EntityDeletionOrUpdateAdapter __updateAdapterOfFoodItems;
+
   private final EntityDeletionOrUpdateAdapter __updateAdapterOfBodyDetails;
+
+  private final EntityDeletionOrUpdateAdapter __updateAdapterOfGoals;
 
   public DatabaseDao_Impl(RoomDatabase __db) {
     this.__db = __db;
@@ -143,7 +147,7 @@ public final class DatabaseDao_Impl implements DatabaseDao {
     this.__insertionAdapterOfFoodItems = new EntityInsertionAdapter<FoodItems>(__db) {
       @Override
       public String createQuery() {
-        return "INSERT OR REPLACE INTO `FoodItems`(`Food Items ID`,`Food Name`,`Food Description`,`Calories`) VALUES (nullif(?, 0),?,?,?)";
+        return "INSERT OR REPLACE INTO `FoodItems`(`Food Items ID`,`Food Name`,`Food Description`,`Calories`,`Total Calories`) VALUES (nullif(?, 0),?,?,?,?)";
       }
 
       @Override
@@ -163,6 +167,11 @@ public final class DatabaseDao_Impl implements DatabaseDao {
           stmt.bindNull(4);
         } else {
           stmt.bindString(4, value.calories);
+        }
+        if (value.totalCalories == null) {
+          stmt.bindNull(5);
+        } else {
+          stmt.bindDouble(5, value.totalCalories);
         }
       }
     };
@@ -295,6 +304,38 @@ public final class DatabaseDao_Impl implements DatabaseDao {
         stmt.bindLong(16, value.SID);
       }
     };
+    this.__updateAdapterOfFoodItems = new EntityDeletionOrUpdateAdapter<FoodItems>(__db) {
+      @Override
+      public String createQuery() {
+        return "UPDATE OR ABORT `FoodItems` SET `Food Items ID` = ?,`Food Name` = ?,`Food Description` = ?,`Calories` = ?,`Total Calories` = ? WHERE `Food Items ID` = ?";
+      }
+
+      @Override
+      public void bind(SupportSQLiteStatement stmt, FoodItems value) {
+        stmt.bindLong(1, value.FOD);
+        if (value.foodName == null) {
+          stmt.bindNull(2);
+        } else {
+          stmt.bindString(2, value.foodName);
+        }
+        if (value.foodDescription == null) {
+          stmt.bindNull(3);
+        } else {
+          stmt.bindString(3, value.foodDescription);
+        }
+        if (value.calories == null) {
+          stmt.bindNull(4);
+        } else {
+          stmt.bindString(4, value.calories);
+        }
+        if (value.totalCalories == null) {
+          stmt.bindNull(5);
+        } else {
+          stmt.bindDouble(5, value.totalCalories);
+        }
+        stmt.bindLong(6, value.FOD);
+      }
+    };
     this.__updateAdapterOfBodyDetails = new EntityDeletionOrUpdateAdapter<BodyDetails>(__db) {
       @Override
       public String createQuery() {
@@ -330,6 +371,28 @@ public final class DatabaseDao_Impl implements DatabaseDao {
           stmt.bindString(6, value.height);
         }
         stmt.bindLong(7, value.BID);
+      }
+    };
+    this.__updateAdapterOfGoals = new EntityDeletionOrUpdateAdapter<Goals>(__db) {
+      @Override
+      public String createQuery() {
+        return "UPDATE OR ABORT `Goals` SET `Goals ID` = ?,`Step Goal` = ?,`Calorie Goal` = ? WHERE `Goals ID` = ?";
+      }
+
+      @Override
+      public void bind(SupportSQLiteStatement stmt, Goals value) {
+        stmt.bindLong(1, value.GOD);
+        if (value.stepGoal == null) {
+          stmt.bindNull(2);
+        } else {
+          stmt.bindString(2, value.stepGoal);
+        }
+        if (value.calorieGoal == null) {
+          stmt.bindNull(3);
+        } else {
+          stmt.bindString(3, value.calorieGoal);
+        }
+        stmt.bindLong(4, value.GOD);
       }
     };
   }
@@ -415,12 +478,40 @@ public final class DatabaseDao_Impl implements DatabaseDao {
   }
 
   @Override
+  public int updateFoodItems(final FoodItems foodItems) {
+    __db.assertNotSuspendingTransaction();
+    int _total = 0;
+    __db.beginTransaction();
+    try {
+      _total +=__updateAdapterOfFoodItems.handle(foodItems);
+      __db.setTransactionSuccessful();
+      return _total;
+    } finally {
+      __db.endTransaction();
+    }
+  }
+
+  @Override
   public int UpdateBody(final BodyDetails bodyDetail) {
     __db.assertNotSuspendingTransaction();
     int _total = 0;
     __db.beginTransaction();
     try {
       _total +=__updateAdapterOfBodyDetails.handle(bodyDetail);
+      __db.setTransactionSuccessful();
+      return _total;
+    } finally {
+      __db.endTransaction();
+    }
+  }
+
+  @Override
+  public int updateGoals(final Goals goal) {
+    __db.assertNotSuspendingTransaction();
+    int _total = 0;
+    __db.beginTransaction();
+    try {
+      _total +=__updateAdapterOfGoals.handle(goal);
       __db.setTransactionSuccessful();
       return _total;
     } finally {
@@ -545,6 +636,7 @@ public final class DatabaseDao_Impl implements DatabaseDao {
       final int _cursorIndexOfFoodName = CursorUtil.getColumnIndexOrThrow(_cursor, "Food Name");
       final int _cursorIndexOfFoodDescription = CursorUtil.getColumnIndexOrThrow(_cursor, "Food Description");
       final int _cursorIndexOfCalories = CursorUtil.getColumnIndexOrThrow(_cursor, "Calories");
+      final int _cursorIndexOfTotalCalories = CursorUtil.getColumnIndexOrThrow(_cursor, "Total Calories");
       final List<FoodItems> _result = new ArrayList<FoodItems>(_cursor.getCount());
       while(_cursor.moveToNext()) {
         final FoodItems _item;
@@ -553,6 +645,11 @@ public final class DatabaseDao_Impl implements DatabaseDao {
         _item.foodName = _cursor.getString(_cursorIndexOfFoodName);
         _item.foodDescription = _cursor.getString(_cursorIndexOfFoodDescription);
         _item.calories = _cursor.getString(_cursorIndexOfCalories);
+        if (_cursor.isNull(_cursorIndexOfTotalCalories)) {
+          _item.totalCalories = null;
+        } else {
+          _item.totalCalories = _cursor.getFloat(_cursorIndexOfTotalCalories);
+        }
         _result.add(_item);
       }
       return _result;

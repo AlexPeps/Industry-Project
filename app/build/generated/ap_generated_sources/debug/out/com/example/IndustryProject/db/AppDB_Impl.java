@@ -35,12 +35,12 @@ public final class AppDB_Impl extends AppDB {
       public void createAllTables(SupportSQLiteDatabase _db) {
         _db.execSQL("CREATE TABLE IF NOT EXISTS `Users` (`User ID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `First Name` TEXT, `Last Name` TEXT, `user_Name` TEXT, `Password` TEXT, `Address` TEXT, `Gender` TEXT, `Mobile Number` TEXT, `Step Goal` TEXT, `CalorieGoal` TEXT, `Age` TEXT, `BMR` TEXT, `Lifestyle` TEXT, `Weight` TEXT, `Height` TEXT)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `Goals` (`Goals ID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `Step Goal` TEXT, `Calorie Goal` TEXT)");
-        _db.execSQL("CREATE TABLE IF NOT EXISTS `FoodItems` (`Food Items ID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `Food Name` TEXT, `Food Description` TEXT, `Calories` TEXT)");
+        _db.execSQL("CREATE TABLE IF NOT EXISTS `FoodItems` (`Food Items ID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `Food Name` TEXT, `Food Description` TEXT, `Calories` TEXT, `Total Calories` REAL)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `Exercise` (`Exercise ID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `Exercise Description` TEXT, `Calorie Amount` TEXT)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `DailyGoals` (`Daily Goals ID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `Step Goal` TEXT, `Body_Details_ID` TEXT, `Food_Items_ID` TEXT, `Exercise_ID` TEXT, `Goals_ID` TEXT, `CalorieGoal` TEXT, FOREIGN KEY(`Body_Details_ID`) REFERENCES `BodyDetails`(`Body Details ID`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`Exercise_ID`) REFERENCES `Exercise`(`Exercise ID`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`Food_Items_ID`) REFERENCES `FoodItems`(`Food Items ID`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`Goals_ID`) REFERENCES `Goals`(`Goals ID`) ON UPDATE NO ACTION ON DELETE NO ACTION )");
         _db.execSQL("CREATE TABLE IF NOT EXISTS `BodyDetails` (`Body Details ID` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `Age` TEXT, `BMR` TEXT, `Lifestyle` TEXT, `Weight` TEXT, `Height` TEXT)");
         _db.execSQL("CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)");
-        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'f2e70194da42251ecf358bc9853d4224')");
+        _db.execSQL("INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '14667a4ed8dec57c936c3d59abea0d68')");
       }
 
       @Override
@@ -123,11 +123,12 @@ public final class AppDB_Impl extends AppDB {
                   + " Expected:\n" + _infoGoals + "\n"
                   + " Found:\n" + _existingGoals);
         }
-        final HashMap<String, TableInfo.Column> _columnsFoodItems = new HashMap<String, TableInfo.Column>(4);
+        final HashMap<String, TableInfo.Column> _columnsFoodItems = new HashMap<String, TableInfo.Column>(5);
         _columnsFoodItems.put("Food Items ID", new TableInfo.Column("Food Items ID", "INTEGER", true, 1));
         _columnsFoodItems.put("Food Name", new TableInfo.Column("Food Name", "TEXT", false, 0));
         _columnsFoodItems.put("Food Description", new TableInfo.Column("Food Description", "TEXT", false, 0));
         _columnsFoodItems.put("Calories", new TableInfo.Column("Calories", "TEXT", false, 0));
+        _columnsFoodItems.put("Total Calories", new TableInfo.Column("Total Calories", "REAL", false, 0));
         final HashSet<TableInfo.ForeignKey> _foreignKeysFoodItems = new HashSet<TableInfo.ForeignKey>(0);
         final HashSet<TableInfo.Index> _indicesFoodItems = new HashSet<TableInfo.Index>(0);
         final TableInfo _infoFoodItems = new TableInfo("FoodItems", _columnsFoodItems, _foreignKeysFoodItems, _indicesFoodItems);
@@ -188,7 +189,7 @@ public final class AppDB_Impl extends AppDB {
                   + " Found:\n" + _existingBodyDetails);
         }
       }
-    }, "f2e70194da42251ecf358bc9853d4224", "98786cd958d2442dd159986351e1a605");
+    }, "14667a4ed8dec57c936c3d59abea0d68", "1d835acd9997a13985d3e78b746b7f9f");
     final SupportSQLiteOpenHelper.Configuration _sqliteConfig = SupportSQLiteOpenHelper.Configuration.builder(configuration.context)
         .name(configuration.name)
         .callback(_openCallback)

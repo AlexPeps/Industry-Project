@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.IndustryProject.db.model.Goals;
+import com.example.IndustryProject.utils.Constant;
 
 public class Food_RecyclerFrag_Main  extends AppCompatActivity {
     //private boolean mSidePanel;
@@ -28,6 +29,8 @@ public class Food_RecyclerFrag_Main  extends AppCompatActivity {
             getSupportFragmentManager().beginTransaction();
                  //   .replace(R.id.rcfrag_main, Food_RecyclerView_Main.newInstance()).commit();
         }
+
+        goals = (Goals) getIntent().getSerializableExtra(Constant.GOALS_OBJECT);
 
         calRef1 = Float.parseFloat(goals.getCalorieGoal().toString());
 
