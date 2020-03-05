@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/IndustryProject.iml" filepath="$PROJECT_DIR$/IndustryProject.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/progressviewslib/progressviewslib.iml" filepath="$PROJECT_DIR$/progressviewslib/progressviewslib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IndustryProject.iml" filepath="$PROJECT_DIR$/IndustryProject.iml" group="IndustryProject" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" group="IndustryProject/app" />
+      <module fileurl="file://$PROJECT_DIR$/progressviewslib/progressviewslib.iml" filepath="$PROJECT_DIR$/progressviewslib/progressviewslib.iml" group="IndustryProject/progressviewslib" />
     </modules>
   </component>
 </project>

@@ -5,7 +5,7 @@
     android:id="@+id/drawer"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    tools:context=".ProfileActivity"
+    tools:context=".activities.MainActivity"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     >
@@ -16,7 +16,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity"
+        tools:context=".activities.login.LoginActivity"
         android:transitionName="testAnimation">
 
 

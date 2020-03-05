@@ -1,123 +1,80 @@
 package com.example.IndustryProject;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
-import androidx.appcompat.widget.Toolbar;
-import androidx.drawerlayout.widget.DrawerLayout;
-
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.BounceInterpolator;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
-import com.example.IndustryProject.db.AppDB;
-import com.example.IndustryProject.db.dao.DatabaseDao;
-import com.example.IndustryProject.db.model.BodyDetails;
-import com.example.IndustryProject.db.model.FoodItems;
-import com.example.IndustryProject.db.model.Goals;
-import com.example.IndustryProject.db.model.User;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
+
+import com.example.IndustryProject.activities.GoalsActivity;
+import com.example.IndustryProject.activities.MainActivity;
+import com.example.IndustryProject.db.entities.BodyDetails;
+import com.example.IndustryProject.db.entities.FoodItems;
+import com.example.IndustryProject.db.entities.Goals;
+import com.example.IndustryProject.db.entities.User;
+import com.example.IndustryProject.db.viewModel.FoodViewModel;
 import com.example.IndustryProject.utils.Constant;
-import com.google.android.material.navigation.NavigationView;
+import com.example.IndustryProject.utils.SPApp;
 import com.natasa.progressviews.CircleProgressBar;
 import com.natasa.progressviews.utils.OnProgressViewListener;
 
 import java.util.List;
 
 public class FoodSummaryActivity extends AppCompatActivity {
-
-
     public static float stepMax = 0f;
     public static float calorieMax = 0f;
-
-    public static String clearGoal = " ";
+    public static float calRef = 0f;
+    //public static String clearGoal = " ";
     float food_calories;
     FoodItems foodItems;
     BodyDetails bodyDetails;
-    DatabaseDao databaseDao;
-    int updateResult;
     Goals goals;
     User user;
     Toolbar toolbar;
 
-
-
+    private int evsteps;
+    private FoodViewModel foodViewModel;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_summary);
+        foodViewModel = ViewModelProviders.of(this).get(FoodViewModel.class);
 
-<<<<<<< HEAD
-
-
-        food_calories =  SearchActivity.calRef;
-
-
-        goals = (Goals) getIntent().getSerializableExtra(Constant.GOALS_OBJECT);
-        user = (User) getIntent().getSerializableExtra(Constant.USER_OBJECT);
-        bodyDetails = (BodyDetails) getIntent().getSerializableExtra(Constant.BODY_OBJECT);
         toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle("Food Summary");
+        toolbar.setTitleTextColor(getResources().getColor(android.R.color.white));
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        goals = SPApp.getGoals(this);
+        user = (User) getIntent().getSerializableExtra(Constant.USER_OBJECT);
+        foodItems = SPApp.getFoodItems(this);
+        evsteps = getIntent().getIntExtra(Constant.EVSTEP, 0);
 
-
-                Intent intent = new Intent(getApplicationContext(), ProfileActivity.class );
-                intent.putExtra(Constant.FOOD_OBJECT, foodItems);
-                intent.putExtra(Constant.USER_OBJECT, user);
-                startActivity(intent);
-
-            }
-        });
-
-
-        updateResult = -1;
-
-      //  getUserInfo();
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-        food_calories = ProfileActivity.calRef;
-
-
-=======
-        food_calories = MainActivity.calRef;
->>>>>>> parent of 3a9383a... 1/3
-
-
-=======
-        food_calories = MainActivity.calRef;
-
-
->>>>>>> parent of 3a9383a... 1/3
->>>>>>> 0825efebb9ee8aa30bdbd67c21f4c61bbbd5eaeb
+        getUserInfo();
+    }
 
 
 
-        Log.d("Calories for Overview", String.valueOf(Food_RecyclerFrag_Main.calRef1));
-        // Setting Steps and CaloriesFood_RecyclerFrag_Main
-        stepMax = GoalsActivity.mSeries;
-        if (stepMax == 0) {
-            stepMax = GoalsActivity.mSeries1;
-        }
-        calorieMax = GoalsActivity.mSeries1;
-        /*
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        calRef = 0;
+        return true;
+    }
 
-        Log.d("SetGoal mseries", String.valueOf(GoalsActivity.mSeries));
-        if (calorieMax == 0) {
-            calorieMax = GoalsActivity.mSeries2;
-        }
-
-         */
+    private void updateUI(){
+        food_calories = calRef;
         final CircleProgressBar steps = findViewById(R.id.step_progress);
         final CircleProgressBar food = findViewById(R.id.food_progress);
 
@@ -136,29 +93,20 @@ public class FoodSummaryActivity extends AppCompatActivity {
         translation1.setFillAfter(true);
         translation1.setInterpolator(new BounceInterpolator());
 
+        stepMax = Float.parseFloat(goals.getStepGoal());
         // Steps Progress Bar
-        steps.setProgress((100 * (ProfileActivity.evsteps)) / stepMax);
+        steps.setProgress((100 * evsteps) / stepMax);
         steps.setWidth(280);
         steps.setWidthProgressBackground(25);
         steps.setWidthProgressBarLine(20);
-        steps.setText(ProfileActivity.evsteps + "/ " + stepMax);
+        steps.setText(evsteps + "/ " + stepMax);
         steps.setTextSize(40);
         steps.setBackgroundColor(Color.LTGRAY);
         steps.setRoundEdgeProgress(true);
         steps.startAnimation(translation);
-        //steps.setProgressIndeterminateAnimation(1000);
-        // Food Progress Bar
-        /*
-        if (food_calories > 0) {
-            food.setProgress((100 * (food_calories)) / calorieMax);
-            food.setText(food_calories + "/ " + calorieMax);
-        } else {
-            food.setProgress((100 * (MainActivity.calRef)) / calorieMax);
-            food.setText(MainActivity.calRef + "/ " + calorieMax);
-        }
 
-         */
-        food.setProgress((100 * (food_calories /calorieMax)));
+        calorieMax = Float.parseFloat(goals.getCalorieGoal());
+        food.setProgress((100 * (food_calories / calorieMax)));
         food.setText(food_calories + "/ " + calorieMax);
         food.setWidthProgressBackground(25);
         food.setWidthProgressBarLine(40);
@@ -174,9 +122,6 @@ public class FoodSummaryActivity extends AppCompatActivity {
 
             @Override
             public void onFinish() {
-                //do something on progress finish
-                //steps.setText("done!");
-                // circleProgressBar.resetProgressBar();
             }
 
             @Override
@@ -223,7 +168,7 @@ public class FoodSummaryActivity extends AppCompatActivity {
             }
         });
 
-
+/*
         // On Click Listeners for Activities
         final ImageView food_summary = (ImageView) findViewById(R.id.food_summary);
         food_summary.setOnClickListener(new View.OnClickListener() {
@@ -235,7 +180,7 @@ public class FoodSummaryActivity extends AppCompatActivity {
         });
 
 
-
+*/
         // Add Calories
         ImageView addcal = (ImageView) findViewById(R.id.addcalories);
         addcal.setOnClickListener(new View.OnClickListener() {
@@ -250,8 +195,21 @@ public class FoodSummaryActivity extends AppCompatActivity {
             }
         });
 
-
     }
+
+    private void getUserInfo() {
+            foodViewModel.getAllFoodItems().observe(this, new Observer<List<FoodItems>>() {
+                @Override
+                public void onChanged(List<FoodItems> foodItems) {
+                    for (FoodItems food : foodItems) {
+                        //set calories to be displayed in overview page
+                        calRef += Float.parseFloat(food.getCalories());
+                        updateUI();
+                    }
+                }
+            });
+    }
+
 
     public void resetGoalsClick(View view) {
 
@@ -271,61 +229,43 @@ public class FoodSummaryActivity extends AppCompatActivity {
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
 
-                        if (goals.getCalorieGoal().isEmpty()){
 
-                            Toast.makeText(getApplicationContext(),"No goals entered!", Toast.LENGTH_SHORT);
+                        final CircleProgressBar steps = findViewById(R.id.step_progress);
+                        final CircleProgressBar food = findViewById(R.id.food_progress);
 
-                        } else{
-                            stepMax = 0;
-                            calorieMax = 0;
-                            goals.calorieGoal = clearGoal;
-                            goals.stepGoal = clearGoal;
-                        new UpdateGoals().execute(goals);
-                        dialog.dismiss();
-                    }}
+
+                       // goals.setCalorieGoal(clearGoal);
+                        //goals.setStepGoal(clearGoal);
+                        foodViewModel.delete(foodItems);
+
+                        Intent GoalIntent = new Intent(getApplicationContext(), GoalsActivity.class);
+                        GoalIntent.putExtra(Constant.FOOD_OBJECT, foodItems);
+                        GoalIntent.putExtra(Constant.BODY_OBJECT, bodyDetails);
+                        GoalIntent.putExtra(Constant.USER_OBJECT, user);
+                        GoalIntent.putExtra(Constant.GOALS_OBJECT, goals);
+                        startActivity(GoalIntent);
+
+
+                    }
 
                 });
         alertDialog.show();
     }
 
     public void foodEditClick(View view) {
-
-        Intent foodIntent = new Intent(getApplicationContext(),SearchActivity.class);
+        Intent foodIntent = new Intent(getApplicationContext(), SearchActivity.class);
         foodIntent.putExtra(Constant.FOOD_OBJECT, foodItems);
         foodIntent.putExtra(Constant.BODY_OBJECT, bodyDetails);
         foodIntent.putExtra(Constant.USER_OBJECT, user);
     }
 
     public void foodBreakDownClick(View view) {
-
-        Intent intent2 = new Intent(FoodSummaryActivity.this, FoodBreakdownActivity.class);
+        Intent intent2 = new Intent(getApplicationContext(), FoodBreakdownActivity.class);
         intent2.putExtra(Constant.FOOD_OBJECT, foodItems);
         startActivity(intent2);
 
     }
-
-    public class UpdateGoals extends AsyncTask<Goals, Void, Void> {
-
-        @Override
-        protected Void doInBackground(Goals... goals) {
-            updateResult = AppDB.instance().getDao().updateGoals(goals[0]);
-            return null;
-        }
-
-        @Override
-        protected void onPostExecute(Void aVoid) {
-            super.onPostExecute(aVoid);
-            if (updateResult == -1) {
-                Toast.makeText(getApplicationContext(),
-                        "Update failure.", Toast.LENGTH_LONG).show();
-            } else {
-                Toast.makeText(getApplicationContext(),
-                        "Update Success. User ID: " + updateResult, Toast.LENGTH_LONG).show();
-
-            }
-
-        }
-    }
-
-
 }
+
+
+

@@ -8,10 +8,10 @@ import androidx.room.RoomSQLiteQuery;
 import androidx.room.util.CursorUtil;
 import androidx.room.util.DBUtil;
 import androidx.sqlite.db.SupportSQLiteStatement;
-import com.example.IndustryProject.db.model.BodyDetails;
-import com.example.IndustryProject.db.model.FoodItems;
-import com.example.IndustryProject.db.model.Goals;
-import com.example.IndustryProject.db.model.User;
+import com.example.IndustryProject.db.entities.BodyDetails;
+import com.example.IndustryProject.db.entities.FoodItems;
+import com.example.IndustryProject.db.entities.Goals;
+import com.example.IndustryProject.db.entities.User;
 import java.lang.Override;
 import java.lang.String;
 import java.lang.SuppressWarnings;
@@ -31,6 +31,8 @@ public final class DatabaseDao_Impl implements DatabaseDao {
   private final EntityInsertionAdapter __insertionAdapterOfBodyDetails;
 
   private final EntityDeletionOrUpdateAdapter __deletionAdapterOfUser;
+
+  private final EntityDeletionOrUpdateAdapter __deletionAdapterOfFoodItems;
 
   private final EntityDeletionOrUpdateAdapter __updateAdapterOfUser;
 
@@ -220,6 +222,17 @@ public final class DatabaseDao_Impl implements DatabaseDao {
       @Override
       public void bind(SupportSQLiteStatement stmt, User value) {
         stmt.bindLong(1, value.SID);
+      }
+    };
+    this.__deletionAdapterOfFoodItems = new EntityDeletionOrUpdateAdapter<FoodItems>(__db) {
+      @Override
+      public String createQuery() {
+        return "DELETE FROM `FoodItems` WHERE `Food Items ID` = ?";
+      }
+
+      @Override
+      public void bind(SupportSQLiteStatement stmt, FoodItems value) {
+        stmt.bindLong(1, value.FOD);
       }
     };
     this.__updateAdapterOfUser = new EntityDeletionOrUpdateAdapter<User>(__db) {
@@ -464,6 +477,20 @@ public final class DatabaseDao_Impl implements DatabaseDao {
   }
 
   @Override
+  public int deleteFoodItems(final FoodItems foodItems) {
+    __db.assertNotSuspendingTransaction();
+    int _total = 0;
+    __db.beginTransaction();
+    try {
+      _total +=__deletionAdapterOfFoodItems.handle(foodItems);
+      __db.setTransactionSuccessful();
+      return _total;
+    } finally {
+      __db.endTransaction();
+    }
+  }
+
+  @Override
   public int updateUsers(final User user) {
     __db.assertNotSuspendingTransaction();
     int _total = 0;
@@ -571,7 +598,7 @@ public final class DatabaseDao_Impl implements DatabaseDao {
 
   @Override
   public List<User> searchUserByUserName(final String uName) {
-    final String _sql = "select * from Users where user_name like ?";
+    final String _sql = "select * from Users where user_name = ?";
     final RoomSQLiteQuery _statement = RoomSQLiteQuery.acquire(_sql, 1);
     int _argIndex = 1;
     if (uName == null) {

@@ -2,42 +2,41 @@ package com.example.IndustryProject.db;
 
 import android.content.Context;
 
-import com.example.IndustryProject.db.dao.DatabaseDao;
-import com.example.IndustryProject.db.model.BodyDetails;
-import com.example.IndustryProject.db.model.DailyGoals;
-import com.example.IndustryProject.db.model.Exercise;
-import com.example.IndustryProject.db.model.FoodItems;
-import com.example.IndustryProject.db.model.Goals;
-import com.example.IndustryProject.db.model.User;
-
-
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+import com.example.IndustryProject.db.dao.DatabaseDao;
+import com.example.IndustryProject.db.dao.FoodDao;
+import com.example.IndustryProject.db.dao.GoalDao;
+import com.example.IndustryProject.db.dao.UserDao;
+import com.example.IndustryProject.db.entities.User;
+import com.example.IndustryProject.db.entities.BodyDetails;
+import com.example.IndustryProject.db.entities.DailyGoals;
+import com.example.IndustryProject.db.entities.Exercise;
+import com.example.IndustryProject.db.entities.FoodItems;
+import com.example.IndustryProject.db.entities.Goals;
 
 
 @Database(entities = {User.class, Goals.class, FoodItems.class, Exercise.class, DailyGoals.class, BodyDetails.class}, version = 1, exportSchema = false)
 
 public abstract class AppDB extends RoomDatabase {
-    private static AppDB appDB = null;
 
-    // This is abstract method, implemented by the Room Framework
+    private static AppDB instance;
+
+    public abstract UserDao userDao();
+    public abstract GoalDao goalDao();
+    public abstract FoodDao foodDao();
+
     public abstract DatabaseDao getDao();
 
-    public static AppDB createAppDBInstance(Context context){
-        if(appDB == null){
-            appDB = Room.databaseBuilder(
-                    context.getApplicationContext(),
-                    AppDB.class,
-                    "AppDB"
-            )
+    public static synchronized AppDB getInstance(Context context) {
+        if (instance == null) {
+            instance = Room.databaseBuilder(context.getApplicationContext(),
+                    AppDB.class, "app_database")
+                    .fallbackToDestructiveMigration()
                     .build();
         }
-        return appDB;
-    }
-
-    public static AppDB instance(){
-        return appDB;
+        return instance;
     }
 }

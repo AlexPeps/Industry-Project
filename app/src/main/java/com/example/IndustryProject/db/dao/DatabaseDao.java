@@ -7,10 +7,10 @@ import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.example.IndustryProject.db.model.BodyDetails;
-import com.example.IndustryProject.db.model.FoodItems;
-import com.example.IndustryProject.db.model.Goals;
-import com.example.IndustryProject.db.model.User;
+import com.example.IndustryProject.db.entities.BodyDetails;
+import com.example.IndustryProject.db.entities.FoodItems;
+import com.example.IndustryProject.db.entities.Goals;
+import com.example.IndustryProject.db.entities.User;
 
 import java.util.List;
 
@@ -21,7 +21,7 @@ public interface DatabaseDao {
     @Query("select * from Users")
     List<User> readAllUsers();
 
-    @Query("select * from Users where user_name like :uName")
+    @Query("select * from Users where user_name = :uName")
     List<User> searchUserByUserName(String uName);
 
     @Query("select * from FoodItems")
@@ -55,6 +55,12 @@ public interface DatabaseDao {
     @Delete
     int deleteUsers(User user);
 
+    @Delete
+    int deleteFoodItems(FoodItems foodItems);
+
     @Update
     int updateGoals(Goals goal);
+
+
+
 }

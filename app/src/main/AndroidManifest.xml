@@ -2,8 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.IndustryProject">
 
+    <uses-feature android:name="android.hardware.sensor.accelerometer"/>
+
     <application
-        android:name=".db.MyApplication"
+        android:name=".MyApplication"
         android:allowBackup="false"
         android:icon="@drawable/ic_pizza"
         android:label="@string/app_name"
@@ -13,22 +15,23 @@
         <activity android:name=".FoodBreakdownActivity"></activity>
         <activity android:name=".FoodSummaryActivity" />
         <activity android:name=".UserInformationActivity" />
-        <activity android:name=".AddUserAcitivity" />
+        <activity android:name=".activities.login.AddUserActivity" />
         <activity android:name=".Food_RecyclerFrag_Main" />
         <activity
             android:name=".SplashActivity"
-            android:theme="@style/SplashTheme">
+            android:theme="@style/SplashTheme"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".ProfileActivity" />
+        <activity android:name=".activities.login.LoginActivity" />
+        <activity android:name=".activities.MainActivity" />
         <activity android:name=".UpdateBodyDetailsActivity" />
         <activity android:name=".InsertBodyDetailsActivity" />
-        <activity android:name=".GoalsActivity" />
+        <activity android:name=".activities.GoalsActivity" />
         <activity android:name=".ReadFileAssetsActivity" />
         <activity android:name=".SearchActivity" />
 
@@ -38,3 +41,4 @@
     </application>
 
 </manifest>
+<!--    android:theme="@style/SplashTheme"-->

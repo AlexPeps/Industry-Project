@@ -10,10 +10,12 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.IndustryProject.activities.login.LoginActivity;
+import com.example.IndustryProject.activities.MainActivity;
 import com.example.IndustryProject.db.AppDB;
-import com.example.IndustryProject.db.model.BodyDetails;
-import com.example.IndustryProject.db.model.Goals;
-import com.example.IndustryProject.db.model.User;
+import com.example.IndustryProject.db.entities.BodyDetails;
+import com.example.IndustryProject.db.entities.Goals;
+import com.example.IndustryProject.db.entities.User;
 import com.example.IndustryProject.utils.Constant;
 
 public class InsertBodyDetailsActivity extends AppCompatActivity {
@@ -68,7 +70,7 @@ public class InsertBodyDetailsActivity extends AppCompatActivity {
                 InsertBodyDetails insertBodyDetails = new InsertBodyDetails();
                 insertBodyDetails.execute(bodyDetails);
 
-                Intent intent = new Intent(this, MainActivity.class);
+                Intent intent = new Intent(this, LoginActivity.class);
                 intent.putExtra(BODY_OBJECT, bodyDetails);
                 intent.putExtra(USER_OBJECT, user);
                 startActivity(intent);
@@ -86,7 +88,7 @@ public class InsertBodyDetailsActivity extends AppCompatActivity {
         @Override
         protected Void doInBackground(BodyDetails... bodyDetails) {
            // insertionResult = MainActivity.userDao.insertBodyDetails(bodyDetails[0]);
-            insertionResult = AppDB.instance().getDao().insertBodyDetails(bodyDetails[0]);
+            insertionResult = AppDB.getInstance(InsertBodyDetailsActivity.this).getDao().insertBodyDetails(bodyDetails[0]);
             return null;
         }
 
@@ -108,7 +110,7 @@ public class InsertBodyDetailsActivity extends AppCompatActivity {
 
 
     public void stinfoCancelButtonClick(View view) {
-        Intent backIntent = new Intent(getApplicationContext(),ProfileActivity.class);
+        Intent backIntent = new Intent(getApplicationContext(), MainActivity.class);
         backIntent.putExtra(Constant.USER_OBJECT, user);
         backIntent.putExtra(Constant.GOALS_OBJECT, goals);
         backIntent.putExtra(Constant.BODY_OBJECT, bodyDetails);

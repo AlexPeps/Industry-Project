@@ -8,4 +8,7 @@ public class Constant {
     public static final String BODY_OBJECT = "BODY_OBJECT";
     public static final String FOOD_OBJECT = "FOOD_OBJECT";
 
+
+    public static final String EVSTEP = "EVSTEP";
+
 }

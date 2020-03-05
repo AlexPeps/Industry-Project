@@ -23,12 +23,12 @@
                 android:layout_height="100dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentBottom="true"
-                android:layout_marginLeft="34dp"
+                android:layout_marginLeft="41dp"
                 android:layout_marginRight="20dp"
-                android:layout_marginBottom="57dp"
+                android:layout_marginBottom="42dp"
                 android:background="@drawable/circle_activity2"
-                android:onClick="foodBreakDownClick"
-                android:src="@drawable/foo" />
+                android:src="@drawable/foo"
+                android:onClick="foodBreakDownClick"/>
 
             <ImageView
                 android:id="@+id/addcalories"
@@ -92,6 +92,7 @@
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             android:elevation="5dp"
+
             android:minHeight="?attr/actionBarSize"
             app:navigationIcon="?attr/homeAsUpIndicator"/>
     </FrameLayout>

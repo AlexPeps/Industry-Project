@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\admalexp\\Documents\\Industry-Project-master\\Industry-Project\\Industry-Project\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
+            "outputFile": "C:\\Users\\OEM\\Desktop\\IP\\Industry-Project\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\alexp.HORODC\\.gradle\\caches\\transforms-2\\files-2.1\\c527b78844be871c44103f6f45a963fb\\core-1.1.0\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\OEM\\.gradle\\caches\\transforms-2\\files-2.1\\1cd7eff88f5e86d0249af2958bf465f0\\core-1.1.0\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -14,26 +14,7 @@
                     }
                 },
                 {
-                    "source": "C:\\Users\\alexp.HORODC\\.gradle\\caches\\transforms-2\\files-2.1\\142d1c0d844115d823cb1828ffd5fbc2\\jetified-card-form-3.1.1\\res\\values-v16\\values-v16.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endLines": "5",
-                        "endColumns": "12",
-                        "endOffsets": "234"
-                    },
-                    "to": {
-                        "startLines": "7",
-                        "startColumns": "4",
-                        "startOffsets": "294",
-                        "endLines": "10",
-                        "endColumns": "12",
-                        "endOffsets": "473"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\alexp.HORODC\\.gradle\\caches\\transforms-2\\files-2.1\\37ec02f661e3547c5499ecdfd9f3cd1f\\appcompat-1.1.0\\res\\values-v16\\values-v16.xml",
+                    "source": "C:\\Users\\OEM\\.gradle\\caches\\transforms-2\\files-2.1\\f7fa931c10060cb31b4ececcd856b65d\\appcompat-1.1.0\\res\\values-v16\\values-v16.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
@@ -49,6 +30,25 @@
                         "endLines": "6",
                         "endColumns": "12",
                         "endOffsets": "289"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\OEM\\.gradle\\caches\\transforms-2\\files-2.1\\d33ab0cbfa659038ac357604231899d6\\jetified-card-form-3.1.1\\res\\values-v16\\values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "234"
+                    },
+                    "to": {
+                        "startLines": "7",
+                        "startColumns": "4",
+                        "startOffsets": "294",
+                        "endLines": "10",
+                        "endColumns": "12",
+                        "endOffsets": "473"
                     }
                 }
             ]

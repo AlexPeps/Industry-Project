@@ -8,39 +8,30 @@ android:layout_height="match_parent"
 tools:context="com.example.IndustryProject.FoodBreakdownActivity">
 
 
-
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorPrimary"
-        android:elevation="5dp"
-        android:minHeight="?attr/actionBarSize"
-        app:navigationIcon="?attr/homeAsUpIndicator"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <EditText
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/txt_search"
-        android:singleLine="true"
-        android:imeOptions="actionSearch"
-        android:hint="Enter text to search"/>
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:elevation="5dp"
+            android:minHeight="?attr/actionBarSize"
+            app:navigationIcon="?attr/homeAsUpIndicator" />
 
 
-    <ListView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:id="@+id/listFoodBreak"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listFoodBreak"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp" />
 
-</LinearLayout>
+    </LinearLayout>
 
 </RelativeLayout>
 

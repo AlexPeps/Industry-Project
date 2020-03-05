@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.IndustryProject.db.model.Goals;
+import com.example.IndustryProject.db.entities.Goals;
 import com.example.IndustryProject.utils.Constant;
 
 public class Food_RecyclerFrag_Main  extends AppCompatActivity {

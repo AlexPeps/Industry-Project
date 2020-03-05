@@ -15,7 +15,8 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.example.IndustryProject.db.model.User;
+import com.example.IndustryProject.activities.MainActivity;
+import com.example.IndustryProject.db.entities.User;
 import com.example.IndustryProject.utils.Constant;
 
 public class UserInformationActivity extends AppCompatActivity {
@@ -157,7 +158,7 @@ public class UserInformationActivity extends AppCompatActivity {
 
 
     public void stinfoCancelButtonClick(View view) {
-        Intent backIntent = new Intent(getApplicationContext(),ProfileActivity.class);
+        Intent backIntent = new Intent(getApplicationContext(), MainActivity.class);
         backIntent.putExtra(USER_OBJECT, user);
         startActivity(backIntent);
 
@@ -192,7 +193,7 @@ public class UserInformationActivity extends AppCompatActivity {
 
         @Override
         protected Void doInBackground(User... users) {
-            updateResult = MainActivity.userDao.updateUsers(users[0]);
+//            updateResult = LoginActivity.userDao.updateUsers(users[0]);
             return null;
         }
 

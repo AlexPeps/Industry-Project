@@ -9,8 +9,10 @@
         android:minSdkVersion="21"
         android:targetSdkVersion="29" />
 
+    <uses-feature android:name="android.hardware.sensor.accelerometer" />
+
     <application
-        android:name="com.example.IndustryProject.db.MyApplication"
+        android:name="com.example.IndustryProject.MyApplication"
         android:allowBackup="false"
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
@@ -22,7 +24,7 @@
         <activity android:name="com.example.IndustryProject.FoodBreakdownActivity" />
         <activity android:name="com.example.IndustryProject.FoodSummaryActivity" />
         <activity android:name="com.example.IndustryProject.UserInformationActivity" />
-        <activity android:name="com.example.IndustryProject.AddUserAcitivity" />
+        <activity android:name="com.example.IndustryProject.activities.login.AddUserActivity" />
         <activity android:name="com.example.IndustryProject.Food_RecyclerFrag_Main" />
         <activity
             android:name="com.example.IndustryProject.SplashActivity"
@@ -33,11 +35,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.example.IndustryProject.MainActivity" />
-        <activity android:name="com.example.IndustryProject.ProfileActivity" />
+        <activity android:name="com.example.IndustryProject.activities.login.LoginActivity" />
+        <activity android:name="com.example.IndustryProject.activities.MainActivity" />
         <activity android:name="com.example.IndustryProject.UpdateBodyDetailsActivity" />
         <activity android:name="com.example.IndustryProject.InsertBodyDetailsActivity" />
-        <activity android:name="com.example.IndustryProject.GoalsActivity" />
+        <activity android:name="com.example.IndustryProject.activities.GoalsActivity" />
         <activity android:name="com.example.IndustryProject.ReadFileAssetsActivity" />
         <activity android:name="com.example.IndustryProject.SearchActivity" />
 
@@ -56,4 +58,4 @@
             android:multiprocess="true" />
     </application>
 
-</manifest>
+</manifest> <!-- android:theme="@style/SplashTheme" -->

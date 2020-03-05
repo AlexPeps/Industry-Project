@@ -7,11 +7,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_weight="1"
     android:fitsSystemWindows="true"
-<<<<<<< HEAD
     tools:context=".FoodSummaryActivity"
-=======
-    tools:context=".Activity_ChangeGoal"
->>>>>>> 0825efebb9ee8aa30bdbd67c21f4c61bbbd5eaeb
     android:id="@+id/drawer">
 
 
@@ -27,7 +23,6 @@
                 android:layout_height="100dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentBottom="true"
-<<<<<<< HEAD
                 android:layout_marginLeft="41dp"
                 android:layout_marginRight="20dp"
                 android:layout_marginBottom="42dp"
@@ -47,26 +42,6 @@
                 android:paddingTop="10dp"
                 android:src="@drawable/foodedit"
                 android:onClick="foodEditClick"/>
-=======
-                android:layout_marginLeft="60dp"
-                android:layout_marginRight="20dp"
-
-                android:layout_marginBottom="50dp"
-                android:background="@drawable/circle_activity2"
-                android:src="@drawable/foo" />
-
-            <ImageView
-                android:id="@+id/addcalories"
-                android:layout_width="65dp"
-                android:layout_height="65dp"
-                android:layout_below="@+id/food_progress"
-                android:layout_alignEnd="@+id/food_progress"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="48dp"
-                android:layout_marginEnd="95dp"
-                android:paddingTop="10dp"
-                android:src="@drawable/foodedit" />
->>>>>>> 0825efebb9ee8aa30bdbd67c21f4c61bbbd5eaeb
 
             <TextView
                 android:layout_width="wrap_content"
@@ -79,20 +54,12 @@
 
             <com.natasa.progressviews.CircleProgressBar
                 android:id="@+id/food_progress"
-<<<<<<< HEAD
                 android:layout_width="226dp"
                 android:layout_height="243dp"
                 android:layout_alignParentRight="true"
                 android:layout_marginLeft="9dp"
                 android:layout_marginTop="50dp"
                 android:layout_marginRight="73dp"
-=======
-                android:layout_width="400dp"
-                android:layout_height="400dp"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="50dp"
-                android:layout_marginRight="30dp"
->>>>>>> 0825efebb9ee8aa30bdbd67c21f4c61bbbd5eaeb
                 android:layout_toRightOf="@+id/step_progress"
                 app:progress_color="@color/protein"
                 app:text_color="@color/protein" />
@@ -102,7 +69,6 @@
                 android:layout_width="130dp"
                 android:layout_height="150dp"
                 android:layout_alignParentStart="true"
-<<<<<<< HEAD
                 android:layout_marginStart="29dp"
                 android:layout_marginTop="50dp"
                 app:progress_color="@color/fats"
@@ -118,12 +84,6 @@
                 android:layout_marginBottom="36dp"
                 app:srcCompat="@drawable/ic_restore_48px"
                 android:onClick="resetGoalsClick"/>
-=======
-                android:layout_marginStart="11dp"
-                android:layout_marginTop="50dp"
-                app:progress_color="@color/fats"
-                app:text_color="@color/fats" />
->>>>>>> 0825efebb9ee8aa30bdbd67c21f4c61bbbd5eaeb
         </RelativeLayout>
 
         <androidx.appcompat.widget.Toolbar
@@ -132,12 +92,9 @@
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
             android:elevation="5dp"
-<<<<<<< HEAD
+
             android:minHeight="?attr/actionBarSize"
             app:navigationIcon="?attr/homeAsUpIndicator"/>
-=======
-            android:minHeight="?attr/actionBarSize" />
->>>>>>> 0825efebb9ee8aa30bdbd67c21f4c61bbbd5eaeb
     </FrameLayout>
     <!--
     <android.support.design.widget.NavigationView

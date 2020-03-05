@@ -15,6 +15,12 @@ import androidx.sqlite.db.SupportSQLiteOpenHelper.Callback;
 import androidx.sqlite.db.SupportSQLiteOpenHelper.Configuration;
 import com.example.IndustryProject.db.dao.DatabaseDao;
 import com.example.IndustryProject.db.dao.DatabaseDao_Impl;
+import com.example.IndustryProject.db.dao.FoodDao;
+import com.example.IndustryProject.db.dao.FoodDao_Impl;
+import com.example.IndustryProject.db.dao.GoalDao;
+import com.example.IndustryProject.db.dao.GoalDao_Impl;
+import com.example.IndustryProject.db.dao.UserDao;
+import com.example.IndustryProject.db.dao.UserDao_Impl;
 import java.lang.IllegalStateException;
 import java.lang.Override;
 import java.lang.String;
@@ -26,6 +32,12 @@ import java.util.Set;
 
 @SuppressWarnings({"unchecked", "deprecation"})
 public final class AppDB_Impl extends AppDB {
+  private volatile UserDao _userDao;
+
+  private volatile GoalDao _goalDao;
+
+  private volatile FoodDao _foodDao;
+
   private volatile DatabaseDao _databaseDao;
 
   @Override
@@ -106,7 +118,7 @@ public final class AppDB_Impl extends AppDB {
         final TableInfo _infoUsers = new TableInfo("Users", _columnsUsers, _foreignKeysUsers, _indicesUsers);
         final TableInfo _existingUsers = TableInfo.read(_db, "Users");
         if (! _infoUsers.equals(_existingUsers)) {
-          throw new IllegalStateException("Migration didn't properly handle Users(com.example.IndustryProject.db.model.User).\n"
+          throw new IllegalStateException("Migration didn't properly handle Users(com.example.IndustryProject.db.entities.User).\n"
                   + " Expected:\n" + _infoUsers + "\n"
                   + " Found:\n" + _existingUsers);
         }
@@ -119,7 +131,7 @@ public final class AppDB_Impl extends AppDB {
         final TableInfo _infoGoals = new TableInfo("Goals", _columnsGoals, _foreignKeysGoals, _indicesGoals);
         final TableInfo _existingGoals = TableInfo.read(_db, "Goals");
         if (! _infoGoals.equals(_existingGoals)) {
-          throw new IllegalStateException("Migration didn't properly handle Goals(com.example.IndustryProject.db.model.Goals).\n"
+          throw new IllegalStateException("Migration didn't properly handle Goals(com.example.IndustryProject.db.entities.Goals).\n"
                   + " Expected:\n" + _infoGoals + "\n"
                   + " Found:\n" + _existingGoals);
         }
@@ -134,7 +146,7 @@ public final class AppDB_Impl extends AppDB {
         final TableInfo _infoFoodItems = new TableInfo("FoodItems", _columnsFoodItems, _foreignKeysFoodItems, _indicesFoodItems);
         final TableInfo _existingFoodItems = TableInfo.read(_db, "FoodItems");
         if (! _infoFoodItems.equals(_existingFoodItems)) {
-          throw new IllegalStateException("Migration didn't properly handle FoodItems(com.example.IndustryProject.db.model.FoodItems).\n"
+          throw new IllegalStateException("Migration didn't properly handle FoodItems(com.example.IndustryProject.db.entities.FoodItems).\n"
                   + " Expected:\n" + _infoFoodItems + "\n"
                   + " Found:\n" + _existingFoodItems);
         }
@@ -147,7 +159,7 @@ public final class AppDB_Impl extends AppDB {
         final TableInfo _infoExercise = new TableInfo("Exercise", _columnsExercise, _foreignKeysExercise, _indicesExercise);
         final TableInfo _existingExercise = TableInfo.read(_db, "Exercise");
         if (! _infoExercise.equals(_existingExercise)) {
-          throw new IllegalStateException("Migration didn't properly handle Exercise(com.example.IndustryProject.db.model.Exercise).\n"
+          throw new IllegalStateException("Migration didn't properly handle Exercise(com.example.IndustryProject.db.entities.Exercise).\n"
                   + " Expected:\n" + _infoExercise + "\n"
                   + " Found:\n" + _existingExercise);
         }
@@ -168,7 +180,7 @@ public final class AppDB_Impl extends AppDB {
         final TableInfo _infoDailyGoals = new TableInfo("DailyGoals", _columnsDailyGoals, _foreignKeysDailyGoals, _indicesDailyGoals);
         final TableInfo _existingDailyGoals = TableInfo.read(_db, "DailyGoals");
         if (! _infoDailyGoals.equals(_existingDailyGoals)) {
-          throw new IllegalStateException("Migration didn't properly handle DailyGoals(com.example.IndustryProject.db.model.DailyGoals).\n"
+          throw new IllegalStateException("Migration didn't properly handle DailyGoals(com.example.IndustryProject.db.entities.DailyGoals).\n"
                   + " Expected:\n" + _infoDailyGoals + "\n"
                   + " Found:\n" + _existingDailyGoals);
         }
@@ -184,7 +196,7 @@ public final class AppDB_Impl extends AppDB {
         final TableInfo _infoBodyDetails = new TableInfo("BodyDetails", _columnsBodyDetails, _foreignKeysBodyDetails, _indicesBodyDetails);
         final TableInfo _existingBodyDetails = TableInfo.read(_db, "BodyDetails");
         if (! _infoBodyDetails.equals(_existingBodyDetails)) {
-          throw new IllegalStateException("Migration didn't properly handle BodyDetails(com.example.IndustryProject.db.model.BodyDetails).\n"
+          throw new IllegalStateException("Migration didn't properly handle BodyDetails(com.example.IndustryProject.db.entities.BodyDetails).\n"
                   + " Expected:\n" + _infoBodyDetails + "\n"
                   + " Found:\n" + _existingBodyDetails);
         }
@@ -233,6 +245,48 @@ public final class AppDB_Impl extends AppDB {
       _db.query("PRAGMA wal_checkpoint(FULL)").close();
       if (!_db.inTransaction()) {
         _db.execSQL("VACUUM");
+      }
+    }
+  }
+
+  @Override
+  public UserDao userDao() {
+    if (_userDao != null) {
+      return _userDao;
+    } else {
+      synchronized(this) {
+        if(_userDao == null) {
+          _userDao = new UserDao_Impl(this);
+        }
+        return _userDao;
+      }
+    }
+  }
+
+  @Override
+  public GoalDao goalDao() {
+    if (_goalDao != null) {
+      return _goalDao;
+    } else {
+      synchronized(this) {
+        if(_goalDao == null) {
+          _goalDao = new GoalDao_Impl(this);
+        }
+        return _goalDao;
+      }
+    }
+  }
+
+  @Override
+  public FoodDao foodDao() {
+    if (_foodDao != null) {
+      return _foodDao;
+    } else {
+      synchronized(this) {
+        if(_foodDao == null) {
+          _foodDao = new FoodDao_Impl(this);
+        }
+        return _foodDao;
       }
     }
   }
